@@ -5,6 +5,7 @@ import { Contact } from './pages/Contact';
 import { About } from './pages/About';
 import { EdibleSalt } from './pages/EdibleSalt';
 import { IndustrialSalt } from './pages/IndustrialSalt';
+import { SpecialtySalt } from './pages/SpecialtySalt';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="products/edible-salt" element={<EdibleSalt />} />
           <Route path="products/industrial-salt" element={<IndustrialSalt />} />
+          <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
         </Route>
       </Routes>
     </BrowserRouter>
