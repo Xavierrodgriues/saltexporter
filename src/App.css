@@ -936,3 +936,132 @@
     min-height: 600px;
   }
 }
+
+/* --- About Page Styles --- */
+.page-header {
+  padding: 80px 0 40px;
+  background-color: var(--bg-pure-white);
+}
+
+.about-content-section {
+  padding: 80px 0;
+}
+
+.about-content-section.bg-off-white {
+  background-color: var(--bg-off-white);
+}
+
+.sub-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.elegant-list {
+  list-style: none;
+  padding: 0;
+}
+
+.elegant-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.elegant-list li::before {
+  content: '•';
+  color: var(--accent-gold);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.elegant-list strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.highlight-quote {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  font-style: italic;
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 20px;
+  margin-top: 30px;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+  padding: 80px 0 100px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.faq-question h4 {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin: 0;
+  padding-right: 20px;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding-bottom: 20px;
+}
+
+.faq-item.open .faq-question h4 {
+  color: var(--accent-gold);
+}
+
+@media (min-width: 1024px) {
+  .alternate-grid .about-text-side {
+    order: 2;
+  }
+  .alternate-grid .about-image-side {
+    order: 1;
+  }
+}
