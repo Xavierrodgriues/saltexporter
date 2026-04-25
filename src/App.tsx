@@ -129,14 +129,27 @@ function App() {
               </div>
             </div>
 
-            {/* Tablet Salt */}
+            {/* Specialty Industrial Salt */}
             <div className="product-card">
               <div className="product-img-wrapper">
-                <img src="/jain_tablet_salt.png" alt="Tablet Salt" className="product-img" />
+                <img src="/specialty_industrial_salt.png" alt="Specialty Industrial Salt" className="product-img" />
                 <div className="product-number">03.</div>
               </div>
               <div className="product-info">
-                <h3 className="product-title">Tablet Salt</h3>
+                <h3 className="product-title">Specialty Industrial Salt</h3>
+                <p className="product-desc">Highly specialized salt grades engineered for specific industrial and chemical applications.</p>
+                <a href="#" className="read-more">View Details</a>
+              </div>
+            </div>
+
+            {/* Salt Tablet */}
+            <div className="product-card">
+              <div className="product-img-wrapper">
+                <img src="/jain_tablet_salt.png" alt="Salt Tablet" className="product-img" />
+                <div className="product-number">04.</div>
+              </div>
+              <div className="product-info">
+                <h3 className="product-title">Salt Tablet</h3>
                 <p className="product-desc">High Purity Water Softener Salt Tablets, meticulously compressed for optimal performance.</p>
                 <a href="#" className="read-more">View Details</a>
               </div>
@@ -171,6 +184,13 @@ function App() {
                   <span>80%</span>
                 </div>
                 <div className="progress-track"><div className="progress-fill" style={{width: '80%'}}></div></div>
+              </div>
+              <div className="progress-item">
+                <div className="progress-header">
+                  <span>Specialty Grade Focus</span>
+                  <span>75%</span>
+                </div>
+                <div className="progress-track"><div className="progress-fill" style={{width: '75%'}}></div></div>
               </div>
               <div className="progress-item">
                 <div className="progress-header">

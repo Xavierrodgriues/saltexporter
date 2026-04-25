@@ -736,7 +736,7 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
   }
 
   .footer-grid {
