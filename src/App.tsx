@@ -1,8 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
+
+function useOnScreen(ref: React.RefObject<Element | null>, rootMargin = "0px") {
+  const [isIntersecting, setIntersecting] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIntersecting(true);
+      },
+      { rootMargin }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref, rootMargin]);
+  return isIntersecting;
+}
+
+const AnimatedNumber = ({ value, duration = 2000, suffix = "" }: { value: number, duration?: number, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isVisible = useOnScreen(ref);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(ease * value));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [value, duration, isVisible]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const statsRef = useRef<HTMLElement>(null);
+  const areStatsVisible = useOnScreen(statsRef, "-50px");
 
   return (
     <div className="app-container premium-editorial">
@@ -90,7 +130,7 @@ function App() {
         <div className="container about-grid">
           <div className="about-image-side">
              <div className="elegant-image-box">
-                <img src="/premium_crystal_macro.png" alt="Salt Manufacturing Heritage" className="about-img grayscale-hover" />
+                <img src="/salt_ponds_aerial.png" alt="Salt Manufacturing Heritage" className="about-img grayscale-hover" />
              </div>
           </div>
           <div className="about-text-side">
@@ -104,7 +144,7 @@ function App() {
             </p>
             <div className="about-stats">
               <div className="stat-elegant">
-                <span className="stat-num">60+</span>
+                <span className="stat-num"><AnimatedNumber value={60} suffix="+" /></span>
                 <span className="stat-label">Years of<br/>Excellence</span>
               </div>
             </div>
@@ -179,7 +219,7 @@ function App() {
       </section>
 
       {/* Recognition & Capabilities Section */}
-      <section className="capabilities-section">
+      <section className="capabilities-section" ref={statsRef}>
         <div className="container capabilities-grid">
           
           <div className="capabilities-text">
@@ -193,49 +233,49 @@ function App() {
               <div className="progress-item">
                 <div className="progress-header">
                   <span>Edible Grade Focus</span>
-                  <span>95%</span>
+                  <span><AnimatedNumber value={95} suffix="%" /></span>
                 </div>
-                <div className="progress-track"><div className="progress-fill" style={{width: '95%'}}></div></div>
+                <div className="progress-track"><div className="progress-fill" style={{width: areStatsVisible ? '95%' : '0%'}}></div></div>
               </div>
               <div className="progress-item">
                 <div className="progress-header">
                   <span>Industrial Grade Focus</span>
-                  <span>80%</span>
+                  <span><AnimatedNumber value={80} suffix="%" /></span>
                 </div>
-                <div className="progress-track"><div className="progress-fill" style={{width: '80%'}}></div></div>
+                <div className="progress-track"><div className="progress-fill" style={{width: areStatsVisible ? '80%' : '0%'}}></div></div>
               </div>
               <div className="progress-item">
                 <div className="progress-header">
                   <span>Specialty Grade Focus</span>
-                  <span>75%</span>
+                  <span><AnimatedNumber value={75} suffix="%" /></span>
                 </div>
-                <div className="progress-track"><div className="progress-fill" style={{width: '75%'}}></div></div>
+                <div className="progress-track"><div className="progress-fill" style={{width: areStatsVisible ? '75%' : '0%'}}></div></div>
               </div>
               <div className="progress-item">
                 <div className="progress-header">
                   <span>Tablet Salt Focus</span>
-                  <span>85%</span>
+                  <span><AnimatedNumber value={85} suffix="%" /></span>
                 </div>
-                <div className="progress-track"><div className="progress-fill" style={{width: '85%'}}></div></div>
+                <div className="progress-track"><div className="progress-fill" style={{width: areStatsVisible ? '85%' : '0%'}}></div></div>
               </div>
             </div>
           </div>
           
           <div className="elegant-counters">
             <div className="counter-item">
-              <span className="counter-num">15+</span>
+              <span className="counter-num"><AnimatedNumber value={15} suffix="+" /></span>
               <span className="counter-label">States Domestic Supply</span>
             </div>
             <div className="counter-item">
-              <span className="counter-num">20+</span>
+              <span className="counter-num"><AnimatedNumber value={20} suffix="+" /></span>
               <span className="counter-label">Countries Exported</span>
             </div>
             <div className="counter-item">
-              <span className="counter-num">60+</span>
+              <span className="counter-num"><AnimatedNumber value={60} suffix="+" /></span>
               <span className="counter-label">Years of Expertise</span>
             </div>
             <div className="counter-item">
-              <span className="counter-num">25+</span>
+              <span className="counter-num"><AnimatedNumber value={25} suffix="+" /></span>
               <span className="counter-label">Professional Teams</span>
             </div>
           </div>
