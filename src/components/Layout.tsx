@@ -27,7 +27,7 @@ export function Layout() {
               <Link to="/products/edible-salt" onClick={() => setIsMobileMenuOpen(false)}>Edible Salt</Link>
               <Link to="/products/industrial-salt" onClick={() => setIsMobileMenuOpen(false)}>Industrial Salt</Link>
               <Link to="/products/specialty-industrial-salt" onClick={() => setIsMobileMenuOpen(false)}>Specialty Industrial Salt</Link>
-              <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Salt Tablet</a>
+              <Link to="/products/salt-tablet" onClick={() => setIsMobileMenuOpen(false)}>Salt Tablet</Link>
             </div>
           </div>
 
@@ -62,7 +62,7 @@ export function Layout() {
                 <Link to="/products/edible-salt" className="dropdown-item">Edible Salt</Link>
                 <Link to="/products/industrial-salt" className="dropdown-item">Industrial Salt</Link>
                 <Link to="/products/specialty-industrial-salt" className="dropdown-item">Specialty Industrial Salt</Link>
-                <a href="/#products" className="dropdown-item">Salt Tablet</a>
+                <Link to="/products/salt-tablet" className="dropdown-item">Salt Tablet</Link>
               </div>
             </div>
             <Link to="/about" className="nav-link">About</Link>
