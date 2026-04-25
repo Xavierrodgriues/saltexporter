@@ -25,7 +25,7 @@ export function Layout() {
             </div>
             <div className={`mobile-accordion-content ${isMobileProductsOpen ? 'open' : ''}`}>
               <Link to="/products/edible-salt" onClick={() => setIsMobileMenuOpen(false)}>Edible Salt</Link>
-              <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Industrial Salt</a>
+              <Link to="/products/industrial-salt" onClick={() => setIsMobileMenuOpen(false)}>Industrial Salt</Link>
               <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Specialty Industrial Salt</a>
               <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Salt Tablet</a>
             </div>
@@ -60,7 +60,7 @@ export function Layout() {
               <a href="/#products" className="nav-link">Our Products</a>
               <div className="dropdown-content">
                 <Link to="/products/edible-salt" className="dropdown-item">Edible Salt</Link>
-                <a href="/#products" className="dropdown-item">Industrial Salt</a>
+                <Link to="/products/industrial-salt" className="dropdown-item">Industrial Salt</Link>
                 <a href="/#products" className="dropdown-item">Specialty Industrial Salt</a>
                 <a href="/#products" className="dropdown-item">Salt Tablet</a>
               </div>
