@@ -3,7 +3,7 @@ import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 
 export function IndustrialSalt() {
   const statsRef = useRef<HTMLElement>(null);
-  const areStatsVisible = useOnScreen(statsRef, "-50px");
+  useOnScreen(statsRef, "-50px");
 
   return (
     <div className="product-page">
