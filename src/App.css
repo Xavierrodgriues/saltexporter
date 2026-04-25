@@ -1431,39 +1431,41 @@
 }
 
 /* --- Product Details Sticky Stacking Cards --- */
-.product-page .products-grid,
-.product-page .benefits-grid,
-.product-page .industries-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-}
+@media (max-width: 767px) {
+  .product-page .products-grid,
+  .product-page .benefits-grid,
+  .product-page .industries-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-.product-page .product-card,
-.product-page .benefit-card,
-.product-page .industry-item {
-  position: sticky;
-  background-color: var(--bg-pure-white);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 -10px 20px rgba(0,0,0,0.03);
-  z-index: 10;
-}
+  .product-page .product-card,
+  .product-page .benefit-card,
+  .product-page .industry-item {
+    position: sticky;
+    background-color: var(--bg-pure-white);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.03);
+    z-index: 10;
+  }
 
-.product-page .product-card {
-  padding: 20px;
-}
+  .product-page .product-card {
+    padding: 20px;
+  }
 
-.product-page .product-info {
-  padding: 20px 0 0 0;
-}
+  .product-page .product-info {
+    padding: 20px 0 0 0;
+  }
 
-.product-page .product-card:nth-child(1), .product-page .benefit-card:nth-child(1), .product-page .industry-item:nth-child(1) { top: 100px; z-index: 11; }
-.product-page .product-card:nth-child(2), .product-page .benefit-card:nth-child(2), .product-page .industry-item:nth-child(2) { top: 130px; z-index: 12; }
-.product-page .product-card:nth-child(3), .product-page .benefit-card:nth-child(3), .product-page .industry-item:nth-child(3) { top: 160px; z-index: 13; }
-.product-page .product-card:nth-child(4), .product-page .benefit-card:nth-child(4), .product-page .industry-item:nth-child(4) { top: 190px; z-index: 14; }
-.product-page .product-card:nth-child(5), .product-page .benefit-card:nth-child(5), .product-page .industry-item:nth-child(5) { top: 220px; z-index: 15; }
-.product-page .product-card:nth-child(6), .product-page .benefit-card:nth-child(6), .product-page .industry-item:nth-child(6) { top: 250px; z-index: 16; }
-.product-page .product-card:nth-child(7), .product-page .benefit-card:nth-child(7), .product-page .industry-item:nth-child(7) { top: 280px; z-index: 17; }
-.product-page .product-card:nth-child(8), .product-page .benefit-card:nth-child(8), .product-page .industry-item:nth-child(8) { top: 310px; z-index: 18; }
+  .product-page .product-card:nth-child(1), .product-page .benefit-card:nth-child(1), .product-page .industry-item:nth-child(1) { top: 100px; z-index: 11; }
+  .product-page .product-card:nth-child(2), .product-page .benefit-card:nth-child(2), .product-page .industry-item:nth-child(2) { top: 130px; z-index: 12; }
+  .product-page .product-card:nth-child(3), .product-page .benefit-card:nth-child(3), .product-page .industry-item:nth-child(3) { top: 160px; z-index: 13; }
+  .product-page .product-card:nth-child(4), .product-page .benefit-card:nth-child(4), .product-page .industry-item:nth-child(4) { top: 190px; z-index: 14; }
+  .product-page .product-card:nth-child(5), .product-page .benefit-card:nth-child(5), .product-page .industry-item:nth-child(5) { top: 220px; z-index: 15; }
+  .product-page .product-card:nth-child(6), .product-page .benefit-card:nth-child(6), .product-page .industry-item:nth-child(6) { top: 250px; z-index: 16; }
+  .product-page .product-card:nth-child(7), .product-page .benefit-card:nth-child(7), .product-page .industry-item:nth-child(7) { top: 280px; z-index: 17; }
+  .product-page .product-card:nth-child(8), .product-page .benefit-card:nth-child(8), .product-page .industry-item:nth-child(8) { top: 310px; z-index: 18; }
+}
