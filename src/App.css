@@ -348,7 +348,7 @@
 }
 
 .center-line {
-  margin: 0 auto 40px;
+  margin: 0 auto 40px !important;
 }
 
 .section-desc {
@@ -796,5 +796,143 @@
 
   .footer-brand {
     grid-column: span 1; /* Reset span */
+  }
+}
+
+/* --- Contact Page Styles --- */
+.contact-page {
+  padding: 100px 0;
+  background-color: var(--bg-pure-white);
+  min-height: calc(100vh - 114px);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.contact-form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-info-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background-color: var(--bg-off-white);
+  border-left: 3px solid var(--accent-gold);
+}
+
+.info-block {
+  margin-bottom: 10px;
+}
+
+.info-heading {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.elegant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.form-input {
+  padding: 15px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.submit-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.contact-map-side {
+  width: 100%;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 400px;
+  background: var(--bg-off-white);
+  border: 1px solid var(--border-light);
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  
+  .contact-form-side {
+    max-width: 100%;
+  }
+  
+  .map-wrapper {
+    height: 100%;
+    min-height: 600px;
   }
 }
