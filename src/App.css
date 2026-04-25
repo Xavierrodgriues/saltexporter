@@ -973,7 +973,7 @@
 }
 
 .elegant-list li::before {
-  content: '•';
+  content: 'â€¢';
   color: var(--accent-gold);
   position: absolute;
   left: 0;
@@ -1064,4 +1064,308 @@
   .alternate-grid .about-image-side {
     order: 1;
   }
+}
+
+/* --- Navigation Dropdown --- */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-pure-white);
+  min-width: 240px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  z-index: 100;
+  padding: 10px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.nav-dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  color: var(--text-muted);
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-off-white);
+  color: var(--accent-gold);
+  padding-left: 25px;
+  border-left: 2px solid var(--accent-gold);
+}
+
+/* --- Mobile Dropdown Accordion --- */
+.mobile-dropdown-container {
+  width: 100%;
+}
+
+.mobile-dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-dropdown-toggle span {
+  font-size: 1.8rem;
+  font-family: var(--font-serif);
+  color: var(--text-dark);
+}
+
+.dropdown-chevron {
+  transition: transform 0.3s ease;
+  color: var(--accent-gold);
+}
+
+.dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 20px;
+}
+
+.mobile-dropdown-content.open {
+  max-height: 300px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mobile-dropdown-content a {
+  font-size: 1.2rem !important;
+  font-family: var(--font-sans) !important;
+  color: var(--text-muted) !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.mobile-dropdown-content a:hover {
+  color: var(--accent-gold) !important;
+}
+
+/* --- Mobile Dropdown --- */
+.mobile-dropdown {
+  width: 100%;
+}
+
+.mobile-dropdown-header {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-light);
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+
+.mobile-dropdown-header:hover {
+  color: var(--accent-gold);
+}
+
+.mobile-dropdown-icon {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  font-weight: 300;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.mobile-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mobile-dropdown-content.open {
+  max-height: 300px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.mobile-nav-links .mobile-dropdown-content a {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-nav-links .mobile-dropdown-content a:hover {
+  color: var(--accent-gold);
+}
+
+
+
+/* --- Mobile Nav Accordion --- */
+.mobile-nav-accordion {
+  width: 100%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-accordion-header {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px 0;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mobile-accordion-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.mobile-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-accordion-content.open {
+  max-height: 250px;
+  padding-bottom: 15px;
+}
+
+.mobile-accordion-content a {
+  font-size: 0.95rem;
+  padding: 12px 0;
+  border-bottom: none;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.mobile-accordion-content a:hover {
+  color: var(--accent-gold);
+}
+
+/* --- Product Detail Pages --- */
+.product-hero {
+  background-color: var(--bg-pure-white);
+  padding: 80px 0 40px;
+}
+
+.horizontal-counters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .horizontal-counters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .horizontal-counters .counter-item {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+.benefit-card {
+  padding: 40px 30px;
+  background-color: var(--bg-pure-white);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid var(--accent-gold);
+}
+
+.benefit-icon {
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.benefit-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.benefit-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }

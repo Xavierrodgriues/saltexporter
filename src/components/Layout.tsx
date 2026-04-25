@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 
 export function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
 
   return (
     <div className="app-container premium-editorial">
@@ -16,7 +17,20 @@ export function Layout() {
         </div>
         <nav className="mobile-nav-links">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Our Products</a>
+          
+          <div className="mobile-nav-accordion">
+            <div className="mobile-accordion-header" onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}>
+              <span>Our Products</span>
+              <span className="mobile-accordion-icon">{isMobileProductsOpen ? '−' : '+'}</span>
+            </div>
+            <div className={`mobile-accordion-content ${isMobileProductsOpen ? 'open' : ''}`}>
+              <Link to="/products/edible-salt" onClick={() => setIsMobileMenuOpen(false)}>Edible Salt</Link>
+              <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Industrial Salt</a>
+              <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Specialty Industrial Salt</a>
+              <a href="/#products" onClick={() => setIsMobileMenuOpen(false)}>Salt Tablet</a>
+            </div>
+          </div>
+
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
         </nav>
@@ -42,7 +56,15 @@ export function Layout() {
           
           <nav className="nav-links">
             <Link to="/" className="nav-link">Home</Link>
-            <a href="/#products" className="nav-link">Our Products</a>
+            <div className="nav-dropdown">
+              <a href="/#products" className="nav-link">Our Products</a>
+              <div className="dropdown-content">
+                <Link to="/products/edible-salt" className="dropdown-item">Edible Salt</Link>
+                <a href="/#products" className="dropdown-item">Industrial Salt</a>
+                <a href="/#products" className="dropdown-item">Specialty Industrial Salt</a>
+                <a href="/#products" className="dropdown-item">Salt Tablet</a>
+              </div>
+            </div>
             <Link to="/about" className="nav-link">About</Link>
             <Link to="/contact" className="nav-link">Contact Us</Link>
           </nav>
