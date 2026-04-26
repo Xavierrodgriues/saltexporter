@@ -1,211 +1,136 @@
+import { SplitTextReveal } from '../components/animations/SplitTextReveal';
+import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
+import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
+
+const featureItems = [
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>ISO-Certified</strong> Manufacturing</> },
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>Consistent Quality</strong> &amp; Delivery</> },
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>Customized Orders</strong> Available</> },
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>Competitive Pricing</strong></> },
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>), label: <><strong>25kg / 50kg</strong> HDPE bags</> },
+  { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>), label: <><strong>Bulk Packaging</strong> on request</> },
+];
+
+const whyBenefits = [
+  { title: 'Purity', desc: '99.5% purity - High-density, slow-dissolving formula ensuring optimal efficiency in all systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>) },
+  { title: 'Export-Grade Quality', desc: 'Our Salt Tablets are specially formulated for use in all types of water softeners and ion exchange systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
+  { title: 'Direct Manufacturer', desc: 'We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
+];
+
+const industries = [
+  { title: 'Textile Industry', desc: 'Soft water improves dye absorption and machinery efficiency.' },
+  { title: 'Pharmaceuticals', desc: 'Ensures purified water for sensitive formulations and equipment.' },
+  { title: 'Food & Beverage', desc: 'Enhances water quality for processing, cleaning, and consistency.' },
+  { title: 'Hotels & Hospitality', desc: 'Protects boilers, plumbing, and laundry systems from scale.' },
+  { title: 'Hospitals & Labs', desc: 'Maintains sterile environments and supports medical-grade water use.' },
+  { title: 'Bottled Water Plants', desc: 'Ensures consistent TDS and taste profiles in purified water.' },
+  { title: 'Automotive Industry', desc: 'Supports painting, coating, and cooling systems.' },
+  { title: 'Power Plants & Boilers', desc: 'Prevents mineral deposits in heating systems.' },
+];
+
 export function TabletSalt() {
   return (
     <div className="product-page">
-      {/* Product Hero Section */}
       <section className="page-header product-hero">
         <div className="container about-grid">
           <div className="about-text-side">
-            <div className="subtitle-label">WATER SOFTENING SALT</div>
-            <h1 className="hero-title">
-              Purity That Powers <br/>
-              <em>Soft Water</em>
-            </h1>
-            <div className="divider-line"></div>
-            <p className="section-desc">
-              <strong>Tablet Salt – High Purity Water Softener Salt Tablets</strong><br/><br/>
-              At Jain Salt, we specialize in manufacturing premium-grade water softening salt, with a strong focus on high-purity salt tablets designed for efficient water treatment systems. With years of experience in the salt industry, we deliver solutions that ensure smooth operations across residential, commercial, and industrial sectors. Our commitment to quality, consistency, and purity has made us a trusted name in the water softening market.
-            </p>
-            <p className="section-desc">
-              Our salt products are manufactured using refined processes that ensure low residue, fast dissolving properties, and optimal performance in softeners and water treatment units. Whether you’re an industrial plant or a domestic user, our salt tablets deliver clean, soft water that protects your equipment and enhances efficiency.
-            </p>
+            <FadeIn delay={0.1}><div className="subtitle-label">WATER SOFTENING SALT</div></FadeIn>
+            <SplitTextReveal text="Purity That Powers Soft Water" as="h1" className="hero-title" delay={0.08} />
+            <AnimatedDivider delay={0.5} />
+            <FadeIn delay={0.4}>
+              <p className="section-desc"><strong>Tablet Salt – High Purity Water Softener Salt Tablets</strong><br /><br />At Jain Salt, we specialize in manufacturing premium-grade water softening salt, with a strong focus on high-purity salt tablets designed for efficient water treatment systems. Our commitment to quality, consistency, and purity has made us a trusted name in the water softening market.</p>
+            </FadeIn>
+            <FadeIn delay={0.55}>
+              <p className="section-desc">Our salt products are manufactured using refined processes that ensure low residue, fast dissolving properties, and optimal performance in softeners and water treatment units.</p>
+            </FadeIn>
           </div>
           <div className="about-image-side">
-            <div className="elegant-image-box">
-               <img src="/salt_tablets_hero.png" alt="High Purity Salt Tablets" className="about-img grayscale-hover" />
+            <div className="elegant-image-box" style={{ overflow: 'hidden' }}>
+              <ImageMaskReveal src="/salt_tablets_hero.png" alt="High Purity Salt Tablets" className="about-img" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us List */}
       <section className="about-content-section bg-off-white">
         <div className="container">
           <div className="section-header text-center">
-            <h2 className="section-title">Why Choose <em>Us?</em></h2>
-            <div className="divider-line center-line"></div>
+            <SplitTextReveal text="Why Choose Us?" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
           </div>
-          <div className="features-list-grid">
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-               <span className="feature-list-text"><strong>ISO-Certified</strong> Manufacturing</span>
-            </div>
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-               <span className="feature-list-text"><strong>Consistent Quality</strong> & Delivery</span>
-            </div>
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-               <span className="feature-list-text"><strong>Customized Orders</strong> Available</span>
-            </div>
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-               <span className="feature-list-text"><strong>Competitive Pricing</strong></span>
-            </div>
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-               <span className="feature-list-text"><strong>25kg / 50kg</strong> HDPE bags</span>
-            </div>
-            <div className="feature-list-item">
-               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-               <span className="feature-list-text"><strong>Bulk Packaging</strong> on request</span>
-            </div>
-          </div>
+          <StaggerGrid className="features-list-grid">
+            {featureItems.map((f, i) => (
+              <AnimatedCard key={i} className="feature-list-item">
+                {f.icon}
+                <span className="feature-list-text">{f.label}</span>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
         </div>
       </section>
 
-      {/* The Collection Section */}
       <section className="products-section" id="collection">
         <div className="container">
           <div className="section-header text-center">
-            <div className="subtitle-label">OUR EXPERTISE</div>
-            <h2 className="section-title">High-Performance <br/><em>Water Softening Salt</em></h2>
-            <div className="divider-line center-line"></div>
+            <FadeIn delay={0.1}><div className="subtitle-label">OUR EXPERTISE</div></FadeIn>
+            <SplitTextReveal text="High-Performance Water Softening Salt" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
           </div>
-          
-          <div className="products-grid" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 450px))', justifyContent: 'center'}}>
-            
-            {/* Water Softening Salt */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/about_crystal_macro_elegant.png" alt="Water Softening Crystal Salt" className="product-img" />
-              </div>
+          <StaggerGrid className="products-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 450px))', justifyContent: 'center' }}>
+            <AnimatedCard className="product-card">
+              <div className="product-img-wrapper"><img src="/about_crystal_macro_elegant.png" alt="Water Softening Crystal Salt" className="product-img" /></div>
               <div className="product-info">
                 <h3 className="product-title">Water Softening Salt (Crystal)</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
+                <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
                   <li><strong>Features:</strong> Prevents mineral buildup in water systems.</li>
-                  <li><strong>Uses:</strong> Residential & commercial water softening.</li>
+                  <li><strong>Uses:</strong> Residential &amp; commercial water softening.</li>
                 </ul>
               </div>
-            </div>
-
-            {/* Salt Tablet */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/jain_tablet_salt.png" alt="Salt Tablet >99.5% Purity" className="product-img" />
-              </div>
+            </AnimatedCard>
+            <AnimatedCard className="product-card">
+              <div className="product-img-wrapper"><img src="/jain_tablet_salt.png" alt="Salt Tablet >99.5% Purity" className="product-img" /></div>
               <div className="product-info">
                 <h3 className="product-title">Salt Tablet &gt;99.5% Purity Grade</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
+                <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
                   <li><strong>Features:</strong> Compressed tablets dissolve quickly.</li>
                   <li><strong>Uses:</strong> Large-scale water softening, purification systems.</li>
                 </ul>
               </div>
-            </div>
-
-          </div>
+            </AnimatedCard>
+          </StaggerGrid>
         </div>
       </section>
 
-      {/* Why Jain Salt Benefits Grid */}
       <section className="about-content-section bg-off-white">
         <div className="container">
           <div className="section-header text-center">
-            <div className="subtitle-label">WHY JAIN SALT?</div>
-            <h2 className="section-title">The Critical <br/><em>Industrial Backbone</em></h2>
-            <div className="divider-line center-line"></div>
+            <FadeIn delay={0.1}><div className="subtitle-label">WHY JAIN SALT?</div></FadeIn>
+            <SplitTextReveal text="The Critical Industrial Backbone" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
           </div>
-
-          <div className="benefits-grid">
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Purity</h3>
-              <p className="benefit-desc">
-                99.5% purity - High-density, slow-dissolving formula ensuring optimal efficiency in all systems.
-              </p>
-            </div>
-            
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Export-Grade Quality</h3>
-              <p className="benefit-desc">
-                Our Salt Tablets are specially formulated for use in all types of water softeners and ion exchange systems.
-              </p>
-            </div>
-
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Direct Manufacturer</h3>
-              <p className="benefit-desc">
-                We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly.
-              </p>
-            </div>
-          </div>
+          <StaggerGrid className="benefits-grid">
+            {whyBenefits.map((b, i) => (<AnimatedCard key={i} className="benefit-card"><div className="benefit-icon">{b.icon}</div><h3 className="benefit-title">{b.title}</h3><p className="benefit-desc">{b.desc}</p></AnimatedCard>))}
+          </StaggerGrid>
         </div>
       </section>
 
-      {/* Industries We Serve */}
       <section className="about-content-section">
         <div className="container">
           <div className="section-header text-center">
-            <h2 className="section-title">Industries We <em>Serve</em></h2>
-            <div className="divider-line center-line"></div>
-            <p className="section-desc text-center" style={{maxWidth: '800px', margin: '0 auto 40px'}}>
-              Our salt tablets are widely used across various industries for water treatment and softening applications.
-            </p>
+            <SplitTextReveal text="Industries We Serve" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
+            <FadeIn delay={0.3}><p className="section-desc text-center" style={{ maxWidth: '800px', margin: '0 auto 40px' }}>Our salt tablets are widely used across various industries for water treatment and softening applications.</p></FadeIn>
           </div>
-          
-          <div className="industries-grid">
-             <div className="industry-item">
-               <h4>Textile Industry</h4>
-               <p>Soft water improves dye absorption and machinery efficiency.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Pharmaceuticals</h4>
-               <p>Ensures purified water for sensitive formulations and equipment.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Food & Beverage</h4>
-               <p>Enhances water quality for processing, cleaning, and consistency.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Hotels & Hospitality</h4>
-               <p>Protects boilers, plumbing, and laundry systems from scale.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Hospitals & Labs</h4>
-               <p>Maintains sterile environments and supports medical-grade water use.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Bottled Water Plants</h4>
-               <p>Ensures consistent TDS and taste profiles in purified water.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Automotive Industry</h4>
-               <p>Supports painting, coating, and cooling systems.</p>
-             </div>
-             <div className="industry-item">
-               <h4>Power Plants & Boilers</h4>
-               <p>Prevents mineral deposits in heating systems.</p>
-             </div>
-          </div>
+          <StaggerGrid className="industries-grid">
+            {industries.map((ind, i) => (
+              <AnimatedCard key={i} className="industry-item">
+                <h4>{ind.title}</h4>
+                <p>{ind.desc}</p>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
         </div>
       </section>
-
     </div>
   );
 }

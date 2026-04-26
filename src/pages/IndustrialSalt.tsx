@@ -1,5 +1,22 @@
 import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
+import { SplitTextReveal } from '../components/animations/SplitTextReveal';
+import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
+import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
+
+const benefits = [
+  { title: 'Strategic Location', desc: 'Based in Gandhidham, strategically near Mundra Port (70 km) and Kandla Port (20 km), facilitating efficient and cost-effective export.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>) },
+  { title: 'Export-Grade Quality', desc: 'Our salt products are FSSAI & ISO certified, trusted globally for purity & consistency across all international markets.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
+  { title: 'Direct Manufacturer', desc: 'We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly to our clients.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
+];
+
+const products = [
+  { img: '/premium_crystal_macro.png', title: 'Refined Salt', features: 'High-purity, finely milled for multipurpose industrial use.', uses: 'Key ingredient in food processing, textile finishing, & water purification.' },
+  { img: '/about_crystal_macro_elegant.png', title: 'Crystal Salt', features: 'Large, dense crystals with high purity.', uses: 'Effective in water softening, de-icing, and various chemical processes.' },
+  { img: '/raw_salt_bowl.png', title: 'Raw Industrial Salt', features: 'Naturally coarse and minimally processed.', uses: 'Suitable for bulk applications in non-food industries.' },
+  { img: '/salt_assortment.png', title: 'Dust Powder', features: 'Extra-fine powder for precise industrial applications.', uses: 'Widely used in chemical formulations and specialized manufacturing.' },
+];
 
 export function IndustrialSalt() {
   const statsRef = useRef<HTMLElement>(null);
@@ -7,181 +24,74 @@ export function IndustrialSalt() {
 
   return (
     <div className="product-page">
-      {/* Product Hero Section */}
       <section className="page-header product-hero">
         <div className="container about-grid">
           <div className="about-text-side">
-            <div className="subtitle-label">JAIN SALT</div>
-            <h1 className="hero-title">
-              Recognized <br/>
-              <em>Company</em>
-            </h1>
-            <div className="divider-line"></div>
-            <p className="section-desc">
-              A well-established name in salt manufacturing with over 50 years of expertise. Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons across various salt grades, ensuring consistent supply and premium quality.
-            </p>
+            <FadeIn delay={0.1}><div className="subtitle-label">JAIN SALT</div></FadeIn>
+            <SplitTextReveal text="Recognized Company" as="h1" className="hero-title" delay={0.08} />
+            <AnimatedDivider delay={0.5} />
+            <FadeIn delay={0.4}>
+              <p className="section-desc">A well-established name in salt manufacturing with over 50 years of expertise. Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons across various salt grades, ensuring consistent supply and premium quality.</p>
+            </FadeIn>
           </div>
           <div className="about-image-side">
-            <div className="elegant-image-box">
-               <img src="/industrial_salt_warehouse.png" alt="Industrial Salt Manufacturing" className="about-img grayscale-hover" />
+            <div className="elegant-image-box" style={{ overflow: 'hidden' }}>
+              <ImageMaskReveal src="/industrial_salt_warehouse.png" alt="Industrial Salt Manufacturing" className="about-img" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Dynamic Stats Section */}
       <section className="capabilities-section bg-off-white" ref={statsRef}>
         <div className="container">
-          <div className="elegant-counters horizontal-counters">
-            <div className="counter-item">
-              <span className="counter-num"><AnimatedNumber value={15} suffix="+" /></span>
-              <span className="counter-label">States Domestic<br/>Supply of Salt</span>
-            </div>
-            <div className="counter-item">
-              <span className="counter-num"><AnimatedNumber value={60} suffix="+" /></span>
-              <span className="counter-label">Years Professional<br/>Experience</span>
-            </div>
-            <div className="counter-item">
-              <span className="counter-num"><AnimatedNumber value={25} suffix="+" /></span>
-              <span className="counter-label">Teams Professional<br/>Experience</span>
-            </div>
-            <div className="counter-item">
-              <span className="counter-num"><AnimatedNumber value={20} suffix="+" /></span>
-              <span className="counter-label">Countries Internationally<br/>Export of Salt</span>
-            </div>
-          </div>
+          <motion.div className="elegant-counters horizontal-counters" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
+            {[{ v: 15, l: 'States Domestic\nSupply of Salt' }, { v: 60, l: 'Years Professional\nExperience' }, { v: 25, l: 'Teams Professional\nExperience' }, { v: 20, l: 'Countries Internationally\nExport of Salt' }].map((s, i) => (
+              <motion.div key={i} className="counter-item" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] } } }}>
+                <span className="counter-num"><AnimatedNumber value={s.v} suffix="+" /></span>
+                <span className="counter-label">{s.l.split('\n').map((line, j) => <span key={j}>{line}{j === 0 && <br />}</span>)}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section className="about-content-section">
         <div className="container">
           <div className="section-header text-center">
-            <div className="subtitle-label">WHY CHOOSE US</div>
-            <h2 className="section-title">Experience the <br/><em>Perfect Taste</em></h2>
-            <div className="divider-line center-line"></div>
+            <FadeIn delay={0.1}><div className="subtitle-label">WHY CHOOSE US</div></FadeIn>
+            <SplitTextReveal text="Experience the Perfect Taste" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
           </div>
-
-          <div className="benefits-grid">
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                  <path d="M2 12h20"></path>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Strategic Location</h3>
-              <p className="benefit-desc">
-                Based in Gandhidham, we are strategically positioned near two major ports, with Mundra Port just 70 km away and Kandla Port only 20 km away, facilitating efficient and cost-effective export.
-              </p>
-            </div>
-            
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Export-Grade Quality</h3>
-              <p className="benefit-desc">
-                Our salt products are FSSAI & ISO certified, trusted globally for purity & consistency across all international markets.
-              </p>
-            </div>
-
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Direct Manufacturer Advantage</h3>
-              <p className="benefit-desc">
-                We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly to our clients.
-              </p>
-            </div>
-          </div>
-          
-          <div className="text-center" style={{marginTop: '40px'}}>
-             <a href="#collection" style={{textDecoration: 'none'}}><button className="btn-outline-dark">Know More</button></a>
-          </div>
+          <StaggerGrid className="benefits-grid">
+            {benefits.map((b, i) => (<AnimatedCard key={i} className="benefit-card"><div className="benefit-icon">{b.icon}</div><h3 className="benefit-title">{b.title}</h3><p className="benefit-desc">{b.desc}</p></AnimatedCard>))}
+          </StaggerGrid>
+          <FadeIn delay={0.3}><div className="text-center" style={{ marginTop: '40px' }}><a href="#collection" style={{ textDecoration: 'none' }}><button className="btn-outline-dark">Know More</button></a></div></FadeIn>
         </div>
       </section>
 
-      {/* The Collection Section */}
       <section className="products-section bg-off-white" id="collection">
         <div className="container">
           <div className="section-header text-center">
-            <div className="subtitle-label">INDUSTRIAL GRADE SALT</div>
-            <h2 className="section-title">Precision Solutions for <br/><em>Industrial Applications</em></h2>
-            <div className="divider-line center-line"></div>
+            <FadeIn delay={0.1}><div className="subtitle-label">INDUSTRIAL GRADE SALT</div></FadeIn>
+            <SplitTextReveal text="Precision Solutions for Industrial Applications" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
           </div>
-          
-          <div className="products-grid">
-            
-            {/* Refined Salt */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/premium_crystal_macro.png" alt="Refined Salt" className="product-img" />
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Refined Salt</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
-                  <li><strong>Features:</strong> High-purity, finely milled for multipurpose industrial use.</li>
-                  <li><strong>Uses:</strong> Key ingredient in food processing, textile finishing, & water purification.</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Crystal Salt */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/about_crystal_macro_elegant.png" alt="Crystal Salt" className="product-img" />
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Crystal Salt</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
-                  <li><strong>Features:</strong> Large, dense crystals with high purity.</li>
-                  <li><strong>Uses:</strong> Effective in water softening, de-icing, and various chemical processes.</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Raw Industrial Salt */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/raw_salt_bowl.png" alt="Raw Industrial Salt" className="product-img" />
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Raw Industrial Salt</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
-                  <li><strong>Features:</strong> Naturally coarse and minimally processed.</li>
-                  <li><strong>Uses:</strong> Suitable for bulk applications in non-food industries.</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Dust Powder */}
-            <div className="product-card">
-              <div className="product-img-wrapper">
-                <img src="/salt_assortment.png" alt="Dust Powder" className="product-img" />
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Dust Powder</h3>
-                <ul className="elegant-list" style={{fontSize: '0.9rem', marginBottom: '10px'}}>
-                  <li><strong>Features:</strong> Extra-fine powder for precise industrial applications.</li>
-                  <li><strong>Uses:</strong> Widely used in chemical formulations and specialized manufacturing.</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
+          <StaggerGrid className="products-grid">
+            {products.map((p, i) => (
+              <AnimatedCard key={i} className="product-card">
+                <div className="product-img-wrapper"><img src={p.img} alt={p.title} className="product-img" /></div>
+                <div className="product-info">
+                  <h3 className="product-title">{p.title}</h3>
+                  <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
+                    <li><strong>Features:</strong> {p.features}</li>
+                    <li><strong>Uses:</strong> {p.uses}</li>
+                  </ul>
+                </div>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
         </div>
       </section>
-
     </div>
   );
 }
