@@ -3,14 +3,16 @@ import { motion } from 'framer-motion';
 
 interface EntranceAnimationProps {
   onComplete: () => void;
+  onExiting: () => void;
 }
 
-export function EntranceAnimation({ onComplete }: EntranceAnimationProps) {
+export function EntranceAnimation({ onComplete, onExiting }: EntranceAnimationProps) {
   const [isExiting, setIsExiting] = useState(false);
 
   const handleVideoEnded = () => {
     setTimeout(() => {
       setIsExiting(true);
+      onExiting();
       setTimeout(onComplete, 1000); // Wait for slide-up transition
     }, 500);
   };

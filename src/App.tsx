@@ -16,6 +16,7 @@ const TabletSalt = lazy(() => import('./pages/TabletSalt').then(m => ({ default:
 
 function App() {
   const [showEntrance, setShowEntrance] = useState(false);
+  const [isEntranceExiting, setIsEntranceExiting] = useState(false);
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem('hasVisitedEntrance');
@@ -29,22 +30,30 @@ function App() {
     setShowEntrance(false);
   };
 
+  const handleEntranceExiting = () => {
+    setIsEntranceExiting(true);
+  };
+
+  const shouldRenderContent = !showEntrance || isEntranceExiting;
+
   return (
     <BrowserRouter>
-      {showEntrance && <EntranceAnimation onComplete={handleEntranceComplete} />}
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="products/edible-salt" element={<EdibleSalt />} />
-            <Route path="products/industrial-salt" element={<IndustrialSalt />} />
-            <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
-            <Route path="products/salt-tablet" element={<TabletSalt />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      {showEntrance && <EntranceAnimation onExiting={handleEntranceExiting} onComplete={handleEntranceComplete} />}
+      {shouldRenderContent && (
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="products/edible-salt" element={<EdibleSalt />} />
+              <Route path="products/industrial-salt" element={<IndustrialSalt />} />
+              <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
+              <Route path="products/salt-tablet" element={<TabletSalt />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      )}
     </BrowserRouter>
   );
 }
