@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { ScrollToTop } from './ScrollToTop';
 
 export function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -83,6 +84,7 @@ export function Layout() {
       </header>
 
       {/* Main Content */}
+      <ScrollToTop />
       <Outlet />
 
       {/* Minimalist Footer */}
