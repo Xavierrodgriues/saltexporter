@@ -84,60 +84,106 @@ export function Home() {
 
   return (
     <>
-      {/* Hero Section with Parallax */}
+      {/* ═══ HERO — Bold Split Layout ═══ */}
       <main className="hero-section" id="home" ref={heroRef}>
-        <div className="container hero-grid">
-          <motion.div className="hero-text-side" style={{ y: heroTextY }}>
-            <motion.div
-              className="subtitle-label"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              EST. 1963
-            </motion.div>
+        <div className="hero-inner">
 
-            <div className="hero-title" style={{ overflow: 'hidden' }}>
-              <SplitTextReveal
-                text="60 Years of Excellence."
-                as="h1"
-                className="hero-title"
-                delay={0.1}
-              />
+          {/* LEFT — Text column */}
+          <motion.div className="hero-left" style={{ y: heroTextY }}>
+            <motion.span
+              className="hero-eyebrow"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              ◆ &nbsp;EST. 1963 &nbsp;◆
+            </motion.span>
+
+            <div className="hero-heading-wrap">
+              <SplitTextReveal text="60 Years" as="h1" className="hero-h1" delay={0.05} />
+              <SplitTextReveal text="of Salt" as="h1" className="hero-h1 hero-h1--accent" delay={0.15} />
+              <SplitTextReveal text="Excellence." as="h1" className="hero-h1" delay={0.25} />
             </div>
 
             <motion.p
-              className="hero-paragraph"
-              initial={{ opacity: 0, y: 20 }}
+              className="hero-sub"
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
+              transition={{ duration: 1.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              Jain Salt Traders is a distinguished name in salt manufacturing. We provide premium Edible, Industrial, and Tablet salt for discerning international markets.
+              Premium Edible, Industrial &amp; Tablet Salt crafted for discerning global markets since 1963.
             </motion.p>
 
             <motion.div
-              className="hero-cta"
-              initial={{ opacity: 0, y: 20 }}
+              className="hero-actions"
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 1.4, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <MagneticButton>
-                <a href="#about" style={{ textDecoration: 'none' }}>
-                  <button className="btn-outline-dark">Discover Our Heritage</button>
+                <a href="#products" style={{ textDecoration: 'none' }}>
+                  <button className="btn-hero-primary">Explore Products</button>
                 </a>
               </MagneticButton>
+              <a href="#about" className="btn-hero-ghost">Our Story &rarr;</a>
+            </motion.div>
+
+            <motion.div
+              className="hero-stats"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {[
+                { val: '60+', label: 'Years Legacy' },
+                { val: '20+', label: 'Countries' },
+                { val: '1.5L MT', label: 'Annual Capacity' },
+              ].map((s, i) => (
+                <div key={i} className="hero-stat-item">
+                  <span className="hero-stat-val">{s.val}</span>
+                  <span className="hero-stat-label">{s.label}</span>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
-          <motion.div className="hero-image-side" style={{ y: heroImgY }}>
-            <div className="image-frame">
-              <ImageMaskReveal
+          {/* RIGHT — Floating image with geometric accent */}
+          <motion.div className="hero-right" style={{ y: heroImgY }}>
+            <motion.div
+              className="hero-geo-circle"
+              initial={{ scale: 0.6, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            />
+            <motion.div
+              className="hero-geo-ring"
+              initial={{ scale: 0.4, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            />
+            <motion.div
+              className="hero-img-frame"
+              initial={{ opacity: 0, y: 60, rotate: 3 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 1.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <img
                 src="/premium_crystal_macro.png"
-                alt="Premium salt crystals on marble"
-                className="hero-image"
+                alt="Premium salt crystals"
+                className="hero-product-img"
               />
-            </div>
+            </motion.div>
+            <motion.div
+              className="hero-badge"
+              initial={{ opacity: 0, scale: 0.7, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="hero-badge-num">01</span>
+              <span className="hero-badge-text">Premium Salt Export</span>
+            </motion.div>
           </motion.div>
+
         </div>
       </main>
 
