@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { PageLoader } from './components/PageLoader';
+import { EntranceAnimation } from './components/EntranceAnimation';
 import './App.css';
 
 // Lazy load pages
@@ -14,8 +15,23 @@ const SpecialtySalt = lazy(() => import('./pages/SpecialtySalt').then(m => ({ de
 const TabletSalt = lazy(() => import('./pages/TabletSalt').then(m => ({ default: m.TabletSalt })));
 
 function App() {
+  const [showEntrance, setShowEntrance] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem('hasVisitedEntrance');
+    if (!hasVisited) {
+      setShowEntrance(true);
+    }
+  }, []);
+
+  const handleEntranceComplete = () => {
+    sessionStorage.setItem('hasVisitedEntrance', 'true');
+    setShowEntrance(false);
+  };
+
   return (
     <BrowserRouter>
+      {showEntrance && <EntranceAnimation onComplete={handleEntranceComplete} />}
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
