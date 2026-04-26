@@ -33,15 +33,31 @@ export function SpecialtySalt() {
             <h2 className="section-title">Why Choose <em>Us?</em></h2>
             <div className="divider-line center-line"></div>
           </div>
-          <div className="faq-container">
-             <ul className="elegant-list" style={{fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto'}}>
-              <li><strong>ISO-Certified Manufacturing</strong></li>
-              <li><strong>Consistent Quality</strong> with On-Time Delivery</li>
-              <li><strong>Customized Orders</strong> and Bulk Supplies</li>
-              <li><strong>Competitive Pricing</strong> for Long-Term Partnerships</li>
-              <li><strong>Packaging:</strong> 25 kg / 50 kg HDPE bags</li>
-              <li><em>Custom bulk packaging available on request</em></li>
-            </ul>
+          <div className="features-list-grid">
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+               <span className="feature-list-text"><strong>ISO-Certified</strong> Manufacturing</span>
+            </div>
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+               <span className="feature-list-text"><strong>Consistent Quality</strong> & Delivery</span>
+            </div>
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+               <span className="feature-list-text"><strong>Customized Orders</strong> Available</span>
+            </div>
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+               <span className="feature-list-text"><strong>Competitive Pricing</strong></span>
+            </div>
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+               <span className="feature-list-text"><strong>25kg / 50kg</strong> HDPE bags</span>
+            </div>
+            <div className="feature-list-item">
+               <svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+               <span className="feature-list-text"><strong>Bulk Packaging</strong> on request</span>
+            </div>
           </div>
         </div>
       </section>

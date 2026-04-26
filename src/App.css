@@ -1469,3 +1469,96 @@
   .product-page .product-card:nth-child(7), .product-page .benefit-card:nth-child(7), .product-page .industry-item:nth-child(7) { top: 280px; z-index: 17; }
   .product-page .product-card:nth-child(8), .product-page .benefit-card:nth-child(8), .product-page .industry-item:nth-child(8) { top: 310px; z-index: 18; }
 }
+
+/* --- Premium Features List Grid --- */
+.features-list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+@media (min-width: 768px) {
+  .features-list-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+.feature-list-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent-gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.feature-list-icon {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.feature-list-text {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.feature-list-text strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* --- Page Loader --- */
+.page-loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  background-color: var(--bg-pure-white);
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--accent-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  font-family: var(--font-sans);
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}

@@ -1,30 +1,37 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { Home } from './pages/Home';
-import { Contact } from './pages/Contact';
-import { About } from './pages/About';
-import { EdibleSalt } from './pages/EdibleSalt';
-import { IndustrialSalt } from './pages/IndustrialSalt';
-import { SpecialtySalt } from './pages/SpecialtySalt';
-import { TabletSalt } from './pages/TabletSalt';
+import { PageLoader } from './components/PageLoader';
 import './App.css';
+
+// Lazy load pages
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
+const EdibleSalt = lazy(() => import('./pages/EdibleSalt').then(m => ({ default: m.EdibleSalt })));
+const IndustrialSalt = lazy(() => import('./pages/IndustrialSalt').then(m => ({ default: m.IndustrialSalt })));
+const SpecialtySalt = lazy(() => import('./pages/SpecialtySalt').then(m => ({ default: m.SpecialtySalt })));
+const TabletSalt = lazy(() => import('./pages/TabletSalt').then(m => ({ default: m.TabletSalt })));
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="products/edible-salt" element={<EdibleSalt />} />
-          <Route path="products/industrial-salt" element={<IndustrialSalt />} />
-          <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
-          <Route path="products/salt-tablet" element={<TabletSalt />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="products/edible-salt" element={<EdibleSalt />} />
+            <Route path="products/industrial-salt" element={<IndustrialSalt />} />
+            <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
+            <Route path="products/salt-tablet" element={<TabletSalt />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
 
 export default App;
+
