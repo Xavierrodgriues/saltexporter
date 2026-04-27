@@ -2,17 +2,17 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
-import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
+import { ProductPageHero } from '../components/ProductPageHero';
 
 export function EdibleSalt() {
   const statsRef = useRef<HTMLElement>(null);
-  useOnScreen(statsRef, "-50px");
+  useOnScreen(statsRef, '-50px');
 
   const benefits = [
-    { title: 'Strategic Location', desc: 'Based in Gandhidham, we are strategically positioned near two major ports, with Mundra Port just 70 km away and Kandla Port only 20 km away, facilitating efficient and cost-effective export.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>) },
-    { title: 'Export-Grade Quality', desc: 'Our salt products are FSSAI & ISO certified, trusted globally for purity & consistency across all international markets.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
-    { title: 'Direct Manufacturer', desc: 'We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly to our clients.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
+    { title: 'Strategic Location', desc: 'Based in Gandhidham, strategically near Mundra Port (70 km) and Kandla Port (20 km), ensuring efficient, cost-effective export logistics.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>) },
+    { title: 'Export-Grade Quality', desc: 'FSSAI & ISO certified products, trusted globally for purity and consistency across all international markets.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
+    { title: 'Direct Manufacturer', desc: 'We eliminate middlemen to deliver the most competitive rates directly to clients — maximum value, zero compromise.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
   ];
 
   const products = [
@@ -24,39 +24,39 @@ export function EdibleSalt() {
 
   return (
     <div className="product-page">
-      {/* Hero */}
-      <section className="page-header product-hero">
-        <div className="container about-grid">
-          <div className="about-text-side">
-            <FadeIn delay={0.1}><div className="subtitle-label">JAIN SALT</div></FadeIn>
-            <SplitTextReveal text="Salt Manufacturing Company" as="h1" className="hero-title" delay={0.08} />
-            <AnimatedDivider delay={0.5} />
-            <FadeIn delay={0.4}>
-              <p className="section-desc">
-                A well-established name in salt manufacturing with over 50 years of expertise. Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons across various salt grades, ensuring consistent supply and premium quality.
-              </p>
-            </FadeIn>
-          </div>
-          <div className="about-image-side">
-            <div className="elegant-image-box" style={{ overflow: 'hidden' }}>
-              <ImageMaskReveal src="/raw_salt_bowl.png" alt="Raw Salt Bowl" className="about-img" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductPageHero
+        eyebrow="Edible Salt Range"
+        titleLine1="Premium"
+        titleLine2="Edible"
+        titleLine3="Salt."
+        description="60 years of crafting the finest edible salt — FSSAI & ISO certified, directly from our Kutch, Gujarat manufacturing units to kitchens and food industries worldwide."
+        imageSrc="/raw_salt_bowl.png"
+        imageAlt="Premium edible salt"
+        stats={[
+          { val: '60+', label: 'Years Legacy' },
+          { val: '15+', label: 'States Supply' },
+          { val: '4', label: 'Salt Grades' },
+        ]}
+        ctaLabel="View Collection"
+        ctaHref="#collection"
+      />
 
-      {/* Stats */}
+      {/* Stats strip */}
       <section className="capabilities-section bg-off-white" ref={statsRef}>
         <div className="container">
           <motion.div
             className="elegant-counters horizontal-counters"
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-10%' }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}
           >
-            {[{ v: 15, l: 'States Domestic\nSupply of Salt' }, { v: 60, l: 'Years Professional\nExperience' }, { v: 25, l: 'Teams Professional\nExperience' }, { v: 20, l: 'Countries Internationally\nExport of Salt' }].map((s, i) => (
-              <motion.div key={i} className="counter-item" variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] } } }}>
+            {[
+              { v: 15, l: 'States\nDomestic Supply' },
+              { v: 60, l: 'Years\nExperience' },
+              { v: 25, l: 'Professional\nTeams' },
+              { v: 20, l: 'Countries\nExported' },
+            ].map((s, i) => (
+              <motion.div key={i} className="counter-item"
+                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] } } }}>
                 <span className="counter-num"><AnimatedNumber value={s.v} suffix="+" /></span>
                 <span className="counter-label">{s.l.split('\n').map((line, j) => <span key={j}>{line}{j === 0 && <br />}</span>)}</span>
               </motion.div>
@@ -65,7 +65,7 @@ export function EdibleSalt() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Why us */}
       <section className="about-content-section">
         <div className="container">
           <div className="section-header text-center">
@@ -82,11 +82,6 @@ export function EdibleSalt() {
               </AnimatedCard>
             ))}
           </StaggerGrid>
-          <FadeIn delay={0.3}>
-            <div className="text-center" style={{ marginTop: '40px' }}>
-              <a href="#collection" style={{ textDecoration: 'none' }}><button className="btn-outline-dark">Know More</button></a>
-            </div>
-          </FadeIn>
         </div>
       </section>
 

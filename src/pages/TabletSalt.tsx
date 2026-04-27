@@ -1,6 +1,6 @@
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
-import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
+import { ProductPageHero } from '../components/ProductPageHero';
 
 const featureItems = [
   { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>ISO-Certified</strong> Manufacturing</> },
@@ -12,9 +12,9 @@ const featureItems = [
 ];
 
 const whyBenefits = [
-  { title: 'Purity', desc: '99.5% purity - High-density, slow-dissolving formula ensuring optimal efficiency in all systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>) },
-  { title: 'Export-Grade Quality', desc: 'Our Salt Tablets are specially formulated for use in all types of water softeners and ion exchange systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
-  { title: 'Direct Manufacturer', desc: 'We provide the most competitive rates by eliminating middleman commissions, delivering exceptional value directly.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
+  { title: 'Purity', desc: '99.5% purity — high-density, slow-dissolving formula ensuring optimal efficiency in all water systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>) },
+  { title: 'Export-Grade Quality', desc: 'Specially formulated for all types of water softeners and ion exchange systems.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>) },
+  { title: 'Direct Manufacturer', desc: 'We eliminate middlemen to deliver the most competitive rates and exceptional value directly to clients.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>) },
 ];
 
 const industries = [
@@ -31,26 +31,22 @@ const industries = [
 export function TabletSalt() {
   return (
     <div className="product-page">
-      <section className="page-header product-hero">
-        <div className="container about-grid">
-          <div className="about-text-side">
-            <FadeIn delay={0.1}><div className="subtitle-label">WATER SOFTENING SALT</div></FadeIn>
-            <SplitTextReveal text="Purity That Powers Soft Water" as="h1" className="hero-title" delay={0.08} />
-            <AnimatedDivider delay={0.5} />
-            <FadeIn delay={0.4}>
-              <p className="section-desc"><strong>Tablet Salt – High Purity Water Softener Salt Tablets</strong><br /><br />At Jain Salt, we specialize in manufacturing premium-grade water softening salt, with a strong focus on high-purity salt tablets designed for efficient water treatment systems. Our commitment to quality, consistency, and purity has made us a trusted name in the water softening market.</p>
-            </FadeIn>
-            <FadeIn delay={0.55}>
-              <p className="section-desc">Our salt products are manufactured using refined processes that ensure low residue, fast dissolving properties, and optimal performance in softeners and water treatment units.</p>
-            </FadeIn>
-          </div>
-          <div className="about-image-side">
-            <div className="elegant-image-box" style={{ overflow: 'hidden' }}>
-              <ImageMaskReveal src="/salt_tablets_hero.png" alt="High Purity Salt Tablets" className="about-img" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductPageHero
+        eyebrow="Water Softening Salt"
+        titleLine1="Purity"
+        titleLine2="Powering"
+        titleLine3="Soft Water."
+        description="Premium-grade salt tablets engineered for water softening systems. 99.5%+ purity, fast-dissolving, low residue — trusted by industries worldwide."
+        imageSrc="/salt_tablets_hero.png"
+        imageAlt="High purity salt tablets"
+        stats={[
+          { val: '99.5%', label: 'Salt Purity' },
+          { val: '8+', label: 'Industries' },
+          { val: '20+', label: 'Countries' },
+        ]}
+        ctaLabel="View Products"
+        ctaHref="#collection"
+      />
 
       <section className="about-content-section bg-off-white">
         <div className="container">
@@ -119,7 +115,7 @@ export function TabletSalt() {
           <div className="section-header text-center">
             <SplitTextReveal text="Industries We Serve" as="h2" className="section-title" delay={0.05} />
             <AnimatedDivider center delay={0.4} />
-            <FadeIn delay={0.3}><p className="section-desc text-center" style={{ maxWidth: '800px', margin: '0 auto 40px' }}>Our salt tablets are widely used across various industries for water treatment and softening applications.</p></FadeIn>
+            <FadeIn delay={0.3}><p className="section-desc text-center" style={{ maxWidth: '800px', margin: '0 auto 40px' }}>Our salt tablets are widely used across industries for water treatment and softening applications.</p></FadeIn>
           </div>
           <StaggerGrid className="industries-grid">
             {industries.map((ind, i) => (
