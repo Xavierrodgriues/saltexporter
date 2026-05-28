@@ -10,7 +10,7 @@ import { MagneticButton } from '../components/animations/MagneticButton';
 gsap.registerPlugin(ScrollTrigger);
 
 // --- Horizontal marquee for a premium ticker feel ---
-const products = ['Edible Salt', 'Industrial Salt', 'Crystal Salt', 'Specialty Salt', 'Tablet Salt', 'Export Grade'];
+const products = ['Edible Salt', 'Industrial Salt', 'Crystal Salt', 'Specialty Salt', 'Water Softening Salt', 'Export Grade'];
 
 export function Home() {
   const statsRef = useRef<HTMLElement>(null);
@@ -111,7 +111,7 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              Premium Edible, Industrial &amp; Tablet Salt crafted for discerning global markets since 1963.
+              Premium Edible, Industrial &amp; Water Softening Salt crafted for discerning global markets since 1963.
             </motion.p>
 
             <motion.div
@@ -276,7 +276,7 @@ export function Home() {
               { src: '/jain_edible_salt.png', num: '01.', title: 'Edible Salt', desc: 'Free Flow Salt, Refined Salt, and Crystal Salt. Processed to the highest culinary standards.', href: '/products/edible-salt' },
               { src: '/premium_crystal_macro.png', num: '02.', title: 'Industrial Salt', desc: 'Crystal Raw, Refined, and Fine Powder Salt. Engineered for specific industrial applications.', href: '/products/industrial-salt' },
               { src: '/specialty_industrial_salt.png', num: '03.', title: 'Specialty Industrial Salt', desc: 'Highly specialized salt grades engineered for specific industrial and chemical applications.', href: '/products/specialty-industrial-salt' },
-              { src: '/jain_tablet_salt.png', num: '04.', title: 'Salt Tablet', desc: 'High Purity Water Softener Salt Tablets, meticulously compressed for optimal performance.', href: '/products/salt-tablet' },
+              { src: '/watersoftner.jpeg', num: '04.', title: 'Water Softening Salt', desc: 'High Purity Water Softener Salt Tablets, meticulously compressed for optimal performance.', href: '/products/salt-tablet' },
             ].map((product, i) => (
               <motion.div
                 key={i}
@@ -318,15 +318,15 @@ export function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons. We ensure consistent supply and premium quality across our entire portfolio.
+              Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons. With Jain Salt as our dedicated in-house salt manufacturer and Avintra serving as our specialized global export arm, we ensure consistent supply and premium quality across our entire portfolio. We proudly export our bulk salt, edible salt, and industrial salt to international markets including Vietnam, Malaysia, Mauritius, Oman, Tanzania, Dubai, Singapore, and are continually expanding our global footprint.
             </motion.p>
 
             <div className="elegant-progress">
               {[
-                { label: 'Edible Grade Focus', value: 95 },
-                { label: 'Industrial Grade Focus', value: 80 },
+                { label: 'Edible Grade Focus', value: 90 },
+                { label: 'Industrial Grade Focus', value: 95 },
                 { label: 'Specialty Grade Focus', value: 75 },
-                { label: 'Tablet Salt Focus', value: 85 },
+                { label: 'Water Softening Salt Focus', value: 90 },
               ].map((item, i) => (
                 <div className="progress-item" key={i}>
                   <div className="progress-header">
@@ -346,7 +346,7 @@ export function Home() {
               { value: 15, label: 'States Domestic Supply' },
               { value: 20, label: 'Countries Exported' },
               { value: 60, label: 'Years of Expertise' },
-              { value: 25, label: 'Professional Teams' },
+              { value: 25, label: 'Professional Team' },
             ].map((counter, i) => (
               <motion.div
                 key={i}

@@ -90,7 +90,7 @@ export function About() {
             <SplitTextReveal text="Expanding Global Presence" as="h2" className="section-title" delay={0.05} />
             <FadeIn delay={0.2}>
               <p className="section-desc">
-                With a strong focus on expanding our direct export operations, Jain Salt is steadily strengthening its footprint in international markets. Our facilities are strategically located near Mundra and Kandla ports, two of the busiest export hubs in India, ensuring efficient logistics and seamless global distribution.
+                With a strong focus on expanding our direct export operations, <strong>Jain Salt</strong> serves as our in-house salt manufacturer while <strong>Avintra</strong> acts as our dedicated export arm. Together, we are steadily strengthening our footprint in international markets. Our premium bulk salt, industrial salt, and edible salt products are actively exported to a growing list of destinations, including <strong>Vietnam, Malaysia, Mauritius, Oman, Tanzania, Dubai, and Singapore</strong>. Backed by facilities strategically located near Mundra and Kandla ports, we ensure efficient logistics and seamless global distribution as our export network continues expanding.
               </p>
             </FadeIn>
             <FadeIn delay={0.35}>

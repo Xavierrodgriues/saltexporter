@@ -74,7 +74,7 @@ export function TabletSalt() {
           </div>
           <StaggerGrid className="products-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 450px))', justifyContent: 'center' }}>
             <AnimatedCard className="product-card">
-              <div className="product-img-wrapper"><img src="/about_crystal_macro_elegant.png" alt="Water Softening Crystal Salt" className="product-img" /></div>
+              <div className="product-img-wrapper"><img src="/crystal_salt_bright.png" alt="Water Softening Crystal Salt" className="product-img" /></div>
               <div className="product-info">
                 <h3 className="product-title">Water Softening Salt (Crystal)</h3>
                 <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
@@ -82,6 +82,10 @@ export function TabletSalt() {
                   <li><strong>Uses:</strong> Residential &amp; commercial water softening.</li>
                 </ul>
                 <div className="product-actions">
+                  <a href="/contact" className="btn-product btn-product-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Ask Specification
+                  </a>
                   <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I am interested in custom specifications for Water Softening Salt (Crystal).')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-solid">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Customize
@@ -90,7 +94,7 @@ export function TabletSalt() {
               </div>
             </AnimatedCard>
             <AnimatedCard className="product-card">
-              <div className="product-img-wrapper"><img src="/jain_tablet_salt.png" alt="Salt Tablet >99.5% Purity" className="product-img" /></div>
+              <div className="product-img-wrapper"><img src="/watersoftner.jpeg" alt="Salt Tablet >99.5% Purity" className="product-img" /></div>
               <div className="product-info">
                 <h3 className="product-title">Salt Tablet &gt;99.5% Purity Grade</h3>
                 <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>

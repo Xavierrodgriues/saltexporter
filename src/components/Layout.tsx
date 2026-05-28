@@ -29,7 +29,7 @@ export function Layout() {
               <Link to="/products/edible-salt" onClick={() => setIsMobileMenuOpen(false)}>Edible Salt</Link>
               <Link to="/products/industrial-salt" onClick={() => setIsMobileMenuOpen(false)}>Industrial Salt</Link>
               <Link to="/products/specialty-industrial-salt" onClick={() => setIsMobileMenuOpen(false)}>Specialty Industrial Salt</Link>
-              <Link to="/products/salt-tablet" onClick={() => setIsMobileMenuOpen(false)}>Salt Tablet</Link>
+              <Link to="/products/salt-tablet" onClick={() => setIsMobileMenuOpen(false)}>Water Softening Salt</Link>
             </div>
           </div>
 
@@ -42,9 +42,9 @@ export function Layout() {
       <div className="utility-bar">
         <div className="container utility-content">
           <div className="contact-info">
-            <span>+91 79909 33686</span>
+            <span><strong>Export &amp; Domestic:</strong> +91 79909 33686</span>
             <span className="divider">|</span>
-            <span>info@saltexporter.com</span>
+            <span><strong>Only Domestic:</strong> +91 94262 03410</span>
             <span className="divider">|</span>
             <span>info@avintra.in</span>
           </div>
@@ -66,7 +66,7 @@ export function Layout() {
                 <Link to="/products/edible-salt" className="dropdown-item">Edible Salt</Link>
                 <Link to="/products/industrial-salt" className="dropdown-item">Industrial Salt</Link>
                 <Link to="/products/specialty-industrial-salt" className="dropdown-item">Specialty Industrial Salt</Link>
-                <Link to="/products/salt-tablet" className="dropdown-item">Salt Tablet</Link>
+                <Link to="/products/salt-tablet" className="dropdown-item">Water Softening Salt</Link>
               </div>
             </div>
             <Link to="/about" className="nav-link">About</Link>
@@ -106,7 +106,7 @@ export function Layout() {
               <li><a href="#">Free Flow Iodised Salt</a></li>
               <li><a href="#">Refined Salt</a></li>
               <li><a href="#">Industrial Salt</a></li>
-              <li><a href="#">Water Softening Tablets</a></li>
+              <li><a href="#">Water Softening Salt</a></li>
               <li><a href="#">Super Fine Salt</a></li>
             </ul>
           </div>

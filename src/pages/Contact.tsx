@@ -72,8 +72,8 @@ export function Contact() {
             <div className="contact-info-blocks">
               <div className="info-block">
                 <h4 className="info-heading">Phone Number</h4>
-                <p>+91 7990933686</p>
-                <p>+91 9426203410</p>
+                <p><strong>Export &amp; Domestic:</strong> +91 7990933686</p>
+                <p><strong>Only Domestic:</strong> +91 9426203410</p>
               </div>
               <div className="info-block">
                 <h4 className="info-heading">Email Addresses</h4>
