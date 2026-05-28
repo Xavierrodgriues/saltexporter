@@ -1,8 +1,57 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider } from '../components/animations/AnimationPrimitives';
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [whatsappLink, setWhatsappLink] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    // Send to info@saltexporter.com and cc info@avintra.in
+    const payload = {
+      ...data,
+      _cc: "info@avintra.in",
+      _subject: "New Contact Form Submission - Jain Salt",
+      _template: "table",
+      _captcha: "false"
+    };
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@saltexporter.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        (e.target as HTMLFormElement).reset();
+        
+        const whatsappMessage = `*New Contact Inquiry*\n\n*Name:* ${data.firstName} ${data.lastName}\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Message:*\n${data.message}`;
+        const url = `https://wa.me/917990933686?text=${encodeURIComponent(whatsappMessage)}`;
+        setWhatsappLink(url);
+        window.open(url, '_blank');
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="contact-page">
       <div className="container">
@@ -12,7 +61,7 @@ export function Contact() {
           <AnimatedDivider center delay={0.5} />
           <FadeIn delay={0.4}>
             <p className="contact-intro">
-              We value your feedback and inquiries. Whether you have question about our products, need prices, or want to explore potential partnerships, we're here to assist you. Please feel free to reach out to us via below mentioned phone number.
+              We value your feedback and inquiries. Whether you have question about our products, need prices, or want to explore potential partnerships, we're here to assist you. Please feel free to reach out to us via the contact details below.
             </p>
           </FadeIn>
         </div>
@@ -27,47 +76,73 @@ export function Contact() {
                 <p>+91 9426203410</p>
               </div>
               <div className="info-block">
+                <h4 className="info-heading">Email Addresses</h4>
+                <p>info@saltexporter.com</p>
+                <p>info@avintra.in</p>
+              </div>
+              <div className="info-block">
                 <h4 className="info-heading">Location</h4>
                 <p>
-                  Office No 9-10, Plot No 17-18, Shahil Appt.,<br />
-                  Opp GMCB Bank, Gandhidham (Kutch) 370201, India.
+                  Office No 1,2,3 Dhiraj Chamber, Plot No. 36, Sector 9, Near Gandhidham Nagar Palika<br />
+                  Gandhidham Kachchh, Gujarat - 370201, Kachchh, Gujarat - 370201, India
                 </p>
               </div>
             </div>
 
             <motion.form
               className="elegant-form"
+              onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
               <h3 className="form-title">Get In Touch</h3>
+
+              {submitStatus === 'success' && (
+                <div style={{ padding: '1rem', backgroundColor: '#e6fffa', color: '#2c7a7b', borderRadius: '4px', marginBottom: '1.5rem' }}>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
+                  {whatsappLink && (
+                    <p style={{ margin: 0, fontSize: '0.9em' }}>
+                      If WhatsApp didn't open automatically, <a href={whatsappLink} target="_blank" rel="noopener noreferrer" style={{ color: '#2b6cb0', textDecoration: 'underline' }}>click here to send your message via WhatsApp</a>.
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div style={{ padding: '1rem', backgroundColor: '#fff5f5', color: '#c53030', borderRadius: '4px', marginBottom: '1.5rem' }}>
+                  Oops! Something went wrong. Please try again or contact us directly via email.
+                </div>
+              )}
+
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First name</label>
-                  <input type="text" id="firstName" name="firstName" className="form-input" />
+                  <input type="text" id="firstName" name="firstName" required className="form-input" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="lastName">Last name</label>
-                  <input type="text" id="lastName" name="lastName" className="form-input" />
+                  <input type="text" id="lastName" name="lastName" required className="form-input" />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">Email address</label>
-                  <input type="email" id="email" name="email" className="form-input" />
+                  <input type="email" id="email" name="email" required className="form-input" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" className="form-input" />
+                  <input type="tel" id="phone" name="phone" required className="form-input" />
                 </div>
               </div>
               <div className="form-group">
                 <label htmlFor="message">Type your message</label>
-                <textarea id="message" name="message" rows={4} className="form-input"></textarea>
+                <textarea id="message" name="message" required rows={4} className="form-input"></textarea>
               </div>
-              <button type="submit" className="btn-solid submit-btn">Send Message</button>
+              <button type="submit" className="btn-solid submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
             </motion.form>
           </FadeIn>
 

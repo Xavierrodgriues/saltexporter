@@ -44,6 +44,8 @@ export function Layout() {
             <span>+91 79909 33686</span>
             <span className="divider">|</span>
             <span>info@saltexporter.com</span>
+            <span className="divider">|</span>
+            <span>info@avintra.in</span>
           </div>
         </div>
       </div>
@@ -93,7 +95,7 @@ export function Layout() {
           <div className="footer-brand">
             <div className="footer-logo">JAIN SALT</div>
             <p className="footer-desc">
-              Jain Salt Traders delivers high-quality salt to clients worldwide from our base in Kutch, near Kandla & Mundra Port. Dedicated to premium export solutions globally.
+              <strong>Avintra</strong> is a global salt exporter, with our own dedicated manufacturing facility operated under <strong>Jain Salt</strong>. Together, we deliver high-quality salt to clients worldwide from our base in Kutch, near Kandla & Mundra Port.
             </p>
           </div>
           

@@ -38,7 +38,7 @@ export function About() {
             <SplitTextReveal text="Established in 1985" as="h2" className="section-title" delay={0.05} />
             <FadeIn delay={0.2}>
               <p className="section-desc">
-                Jain Salt Traders has grown into a trusted name in the salt industry, known for producing high-quality salt products for both food and industrial applications. With over three decades of expertise, we specialize in manufacturing a diverse range of salts, including edible varieties (free flow, refined, crystal salt), industrial salt, and water softening salt tablets.
+                <strong>Avintra</strong> serves as our global export arm, while <strong>Jain Salt</strong> is our dedicated manufacturing facility. As an exporter with its own manufacturing unit, Avintra ensures strict quality control from production to delivery. Together, we have grown into a trusted name in the salt industry, known for producing high-quality salt products for both food and industrial applications. With over three decades of expertise, we specialize in manufacturing a diverse range of salts, including edible varieties (free flow, refined, crystal salt), industrial salt, and water softening salt tablets.
               </p>
             </FadeIn>
             <FadeIn delay={0.35}>
