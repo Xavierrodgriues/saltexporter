@@ -13,8 +13,8 @@ export function About() {
   const faqs = [
     { q: "What is Jain Salt?", a: "Jain Salt is a pure and natural salt specifically processed without any animal-based additives, preservatives, or chemical refining, making it suitable for those following Jain dietary principles." },
     { q: "Is Jain Salt completely vegetarian and vegan?", a: "Yes, Jain Salt is 100% vegetarian and vegan. It is free from any animal-derived ingredients and is processed in a cruelty-free manner." },
-    { q: "How is Jain Salt different from regular table salt?", a: "Unlike regular table salt, Jain Salt is free from additives like iodine, anti-caking agents, and preservatives. It is minimally processed to retain its natural minerals and purity." },
-    { q: "Does Jain Salt contain iodine?", a: "No, Jain Salt is typically non-iodized to comply with Jain dietary restrictions. If you require iodine for health reasons, consult your healthcare provider." },
+    { q: "What is the relationship between Avintra and Jain Salt?", a: "Avintra is our dedicated international export division, while Jain Salt is our in-house manufacturing facility. Because we handle both manufacturing and exporting internally, we can ensure unmatched quality control, competitive pricing, and seamless global delivery without relying on middlemen." },
+    { q: "Why is our pricing and service better than competitors?", a: "Unlike exporters who rely on third-party suppliers, we have our own in-house salt manufacturing facility—Jain Salt. This means we don't have to source our products from outside. By manufacturing the salt ourselves and exporting it directly through Avintra, we completely eliminate middleman markups and external delays, allowing us to offer unbeatable direct-from-manufacturer pricing and highly reliable service." },
     { q: "Is Jain Salt good for health?", a: "Yes, it is free from harmful chemicals and retains essential trace minerals, making it a healthier alternative to refined salt." },
   ];
 

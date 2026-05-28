@@ -41,6 +41,36 @@ export function IndustrialSalt() {
         ctaHref="#collection"
       />
 
+      <section className="products-section bg-off-white" id="collection">
+        <div className="container">
+          <div className="section-header text-center">
+            <FadeIn delay={0.1}><div className="subtitle-label">INDUSTRIAL GRADE SALT</div></FadeIn>
+            <SplitTextReveal text="Precision Solutions for Industrial Applications" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
+          </div>
+          <StaggerGrid className="products-grid">
+            {products.map((p, i) => (
+              <AnimatedCard key={i} className="product-card">
+                <div className="product-img-wrapper"><img src={p.img} alt={p.title} className="product-img" /></div>
+                <div className="product-info">
+                  <h3 className="product-title">{p.title}</h3>
+                  <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
+                    <li><strong>Features:</strong> {p.features}</li>
+                    <li><strong>Uses:</strong> {p.uses}</li>
+                  </ul>
+                  <div className="product-actions">
+                    <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I am interested in custom specifications for ' + p.title + '.')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-solid">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                      Customize
+                    </a>
+                  </div>
+                </div>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
+        </div>
+      </section>
+
       <section className="capabilities-section bg-off-white" ref={statsRef}>
         <div className="container">
           <motion.div className="elegant-counters horizontal-counters"
@@ -81,29 +111,7 @@ export function IndustrialSalt() {
         </div>
       </section>
 
-      <section className="products-section bg-off-white" id="collection">
-        <div className="container">
-          <div className="section-header text-center">
-            <FadeIn delay={0.1}><div className="subtitle-label">INDUSTRIAL GRADE SALT</div></FadeIn>
-            <SplitTextReveal text="Precision Solutions for Industrial Applications" as="h2" className="section-title" delay={0.05} />
-            <AnimatedDivider center delay={0.4} />
-          </div>
-          <StaggerGrid className="products-grid">
-            {products.map((p, i) => (
-              <AnimatedCard key={i} className="product-card">
-                <div className="product-img-wrapper"><img src={p.img} alt={p.title} className="product-img" /></div>
-                <div className="product-info">
-                  <h3 className="product-title">{p.title}</h3>
-                  <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
-                    <li><strong>Features:</strong> {p.features}</li>
-                    <li><strong>Uses:</strong> {p.uses}</li>
-                  </ul>
-                </div>
-              </AnimatedCard>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
+      
     </div>
   );
 }

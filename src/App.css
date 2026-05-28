@@ -841,6 +841,15 @@
 
 .product-card {
   transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .product-card:hover {
@@ -2083,4 +2092,54 @@
 .marquee-dot {
   color: var(--accent-gold);
   font-size: 0.5rem;
+}
+
+/* --- Product Card Actions --- */
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.btn-product {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-product-outline {
+  border: 1px solid var(--text-dark);
+  color: var(--text-dark);
+  background: transparent;
+}
+
+.btn-product-outline:hover {
+  background: var(--text-dark);
+  color: var(--bg-pure-white);
+}
+
+.btn-product-solid {
+  background: var(--text-dark);
+  color: var(--bg-pure-white);
+  border: 1px solid var(--text-dark);
+}
+
+.btn-product-solid:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
 }

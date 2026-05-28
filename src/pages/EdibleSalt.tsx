@@ -16,14 +16,16 @@ export function EdibleSalt() {
   ];
 
   const products = [
-    { img: '/jain_edible_salt.png', title: 'Free Flow Salt', features: 'Anti-caking properties for smooth flow.', uses: 'Ideal for home cooking, restaurants, and food services.' },
-    { img: '/about_crystal_macro_elegant.png', title: 'Crystal Salt', features: 'Minimally processed, natural minerals.', uses: 'Suitable for culinary & rustic seasoning needs.' },
-    { img: '/premium_crystal_macro.png', title: 'Refined Iodised Salt', features: 'Iodine-fortified for health benefits.', uses: 'Essential for daily cooking.' },
-    { img: '/salt_assortment.png', title: 'Common Iodised Salt', features: 'Balanced iodine content for general use.', uses: 'All-purpose cooking salt.' },
+    { pdf: '/Refined iodised free flow salt.pdf', img: '/FreeFlowSalt.jpeg', title: 'Free Flow Salt', features: 'Anti-caking properties for smooth flow.', uses: 'Ideal for home cooking, restaurants, and food services.', brands: 'Vito Fresh Free Flow Salt, Kesri Fresh Free Flow Salt, Tala Free Flow Salt' },
+    { pdf: '', img: '/Crystal Salt.jpeg', title: 'Crystal Salt', features: 'Minimally processed, natural minerals.', uses: 'Suitable for culinary & rustic seasoning needs.', brands: 'Sargam Crystal Salt, Pure Crystal Salt' },
+    { pdf: '', img: '/premium_crystal_macro.png', title: 'Refined Iodised Salt', features: 'Iodine-fortified for health benefits.', uses: 'Essential for daily cooking.', brands: '' },
+    { pdf: '', img: '/salt_assortment.png', title: 'Common Iodised Salt', features: 'Balanced iodine content for general use.', uses: 'All-purpose cooking salt.', brands: '' },
   ];
 
   return (
     <div className="product-page">
+
+      
       <ProductPageHero
         eyebrow="Edible Salt Range"
         titleLine1="Premium"
@@ -40,6 +42,47 @@ export function EdibleSalt() {
         ctaLabel="View Collection"
         ctaHref="#collection"
       />
+
+      {/* Collection */}
+      <section className="products-section bg-off-white" id="collection">
+        <div className="container">
+          <div className="section-header text-center">
+            <FadeIn delay={0.1}><div className="subtitle-label">EDIBLE GRADE SALT</div></FadeIn>
+            <SplitTextReveal text="Premium Quality for Your Culinary Needs" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
+          </div>
+          <StaggerGrid className="products-grid">
+            {products.map((p, i) => (
+              <AnimatedCard key={i} className="product-card">
+                <div className="product-img-wrapper">
+                  <img src={p.img} alt={p.title} className="product-img" />
+                </div>
+                <div className="product-info">
+                  <h3 className="product-title">{p.title}</h3>
+                  <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
+                    <li><strong>Features:</strong> {p.features}</li>
+                    <li><strong>Uses:</strong> {p.uses}</li>
+                    {p.brands && <li><strong>Our Brands:</strong> {p.brands}</li>}
+                  </ul>
+                  
+                  <div className="product-actions">
+                    {p.pdf && (
+                      <a href={p.pdf} download className="btn-product btn-product-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Specification
+                      </a>
+                    )}
+                    <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I am interested in custom specifications for ' + p.title + '.')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-solid">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                      Customize
+                    </a>
+                  </div>
+                </div>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
+        </div>
+      </section>
 
       {/* Stats strip */}
       <section className="capabilities-section bg-off-white" ref={statsRef}>
@@ -85,32 +128,7 @@ export function EdibleSalt() {
         </div>
       </section>
 
-      {/* Collection */}
-      <section className="products-section bg-off-white" id="collection">
-        <div className="container">
-          <div className="section-header text-center">
-            <FadeIn delay={0.1}><div className="subtitle-label">EDIBLE GRADE SALT</div></FadeIn>
-            <SplitTextReveal text="Premium Quality for Your Culinary Needs" as="h2" className="section-title" delay={0.05} />
-            <AnimatedDivider center delay={0.4} />
-          </div>
-          <StaggerGrid className="products-grid">
-            {products.map((p, i) => (
-              <AnimatedCard key={i} className="product-card">
-                <div className="product-img-wrapper">
-                  <img src={p.img} alt={p.title} className="product-img" />
-                </div>
-                <div className="product-info">
-                  <h3 className="product-title">{p.title}</h3>
-                  <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
-                    <li><strong>Features:</strong> {p.features}</li>
-                    <li><strong>Uses:</strong> {p.uses}</li>
-                  </ul>
-                </div>
-              </AnimatedCard>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
+      
     </div>
   );
 }
