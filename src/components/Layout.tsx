@@ -95,7 +95,7 @@ export function Layout() {
         <div className="container footer-grid">
           <div className="footer-brand">
             <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
-              <AnimatedLogo className="logo" />
+              <AnimatedLogo className="logo" imageSrc="/avintraaa.jpeg" />
             </Link>
             <p className="footer-desc" style={{marginTop: '15px'}}>
               <strong>Avintra</strong> is a global salt exporter, with our own dedicated manufacturing facility operated under <strong>Jain Salt</strong>. Together, we deliver high-quality salt to clients worldwide from our base in Kutch, near Kandla & Mundra Port.

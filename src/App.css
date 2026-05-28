@@ -773,6 +773,13 @@
   color: var(--accent-gold);
 }
 
+.text-center .section-title,
+.text-center .hero-title,
+.text-center .prod-hero-h1,
+.section-title.text-center {
+  justify-content: center;
+}
+
 .divider-line {
   width: 50px;
   height: 1px;
