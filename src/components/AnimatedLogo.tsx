@@ -9,44 +9,64 @@ export function AnimatedLogo({
   isFooter?: boolean,
   imageSrc?: string
 }) {
-  const [showImage, setShowImage] = useState(false);
+  // rotateY accumulates: 0 -> 180 -> 360 -> 540...
+  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowImage(prev => !prev);
-    }, 5000); // 5 sec infinite transition
+      setRotation(prev => prev + 180);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  // Which face is currently showing: even multiples of 180 = JAIN SALT (front), odd = Avintra (back)
+  const containerStyle: React.CSSProperties = {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    minWidth: isFooter ? '120px' : '140px',
+    height: isFooter ? '30px' : '40px',
+    perspective: '600px',
+    padding: 0,
+  };
+
+  const innerStyle: React.CSSProperties = {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    transformStyle: 'preserve-3d',
+    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+    transform: `rotateY(${rotation}deg)`,
+  };
+
+  const faceStyle: React.CSSProperties = {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    backfaceVisibility: 'hidden',
+    WebkitBackfaceVisibility: 'hidden',
+    whiteSpace: 'nowrap',
+  };
+
   return (
-    <div className={className} style={{ position: 'relative', display: 'flex', alignItems: 'center', minWidth: isFooter ? '120px' : '140px', height: isFooter ? '30px' : '40px', padding: 0 }}>
-      <div 
-        style={{ 
-          position: 'absolute', 
-          transition: 'opacity 1s ease-in-out', 
-          opacity: showImage ? 0 : 1,
-          left: 0,
-          whiteSpace: 'nowrap'
-        }}
-      >
-        JAIN SALT
-      </div>
-      <div 
-        style={{ 
-          position: 'absolute', 
-          transition: 'opacity 1s ease-in-out', 
-          opacity: showImage ? 1 : 0,
-          display: 'flex',
-          alignItems: 'center',
-          height: '100%',
-          left: 0
-        }}
-      >
-        <img 
-          src={imageSrc} 
-          alt="Avintra" 
-          style={{ maxHeight: isFooter ? '24px' : '36px', width: 'auto', objectFit: 'contain' }} 
-        />
+    <div className={className} style={containerStyle}>
+      <div style={innerStyle}>
+        {/* Front face: JAIN SALT */}
+        <div style={faceStyle}>
+          JAIN SALT
+        </div>
+        {/* Back face: Avintra image */}
+        <div style={{ ...faceStyle, transform: 'rotateY(180deg)' }}>
+          <img 
+            src={imageSrc} 
+            alt="Avintra" 
+            style={{ maxHeight: isFooter ? '24px' : '36px', width: 'auto', objectFit: 'contain' }} 
+          />
+        </div>
       </div>
     </div>
   );
