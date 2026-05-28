@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { ScrollToTop } from './ScrollToTop';
+import { AnimatedLogo } from './AnimatedLogo';
 
 export function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -53,8 +54,8 @@ export function Layout() {
       {/* Minimalist Navbar */}
       <header className="minimal-nav">
         <div className="container nav-content">
-          <Link to="/" className="logo" style={{textDecoration: 'none', color: 'inherit'}}>
-            JAIN SALT
+          <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
+            <AnimatedLogo className="logo" />
           </Link>
           
           <nav className="nav-links">
@@ -93,7 +94,7 @@ export function Layout() {
       <footer className="minimal-footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <div className="footer-logo">JAIN SALT</div>
+            <AnimatedLogo className="footer-logo" isFooter={true} imageSrc="/avintraa.jpeg" />
             <p className="footer-desc">
               <strong>Avintra</strong> is a global salt exporter, with our own dedicated manufacturing facility operated under <strong>Jain Salt</strong>. Together, we deliver high-quality salt to clients worldwide from our base in Kutch, near Kandla & Mundra Port.
             </p>
