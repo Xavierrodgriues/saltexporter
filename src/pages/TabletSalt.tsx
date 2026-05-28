@@ -48,24 +48,7 @@ export function TabletSalt() {
         ctaHref="#collection"
       />
 
-      <section className="about-content-section bg-off-white">
-        <div className="container">
-          <div className="section-header text-center">
-            <SplitTextReveal text="Why Choose Us?" as="h2" className="section-title" delay={0.05} />
-            <AnimatedDivider center delay={0.4} />
-          </div>
-          <StaggerGrid className="features-list-grid">
-            {featureItems.map((f, i) => (
-              <AnimatedCard key={i} className="feature-list-item">
-                {f.icon}
-                <span className="feature-list-text">{f.label}</span>
-              </AnimatedCard>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      <section className="products-section" id="collection">
+       <section className="products-section" id="collection">
         <div className="container">
           <div className="section-header text-center">
             <FadeIn delay={0.1}><div className="subtitle-label">OUR EXPERTISE</div></FadeIn>
@@ -116,6 +99,25 @@ export function TabletSalt() {
           </StaggerGrid>
         </div>
       </section>
+
+      <section className="about-content-section bg-off-white">
+        <div className="container">
+          <div className="section-header text-center">
+            <SplitTextReveal text="Why Choose Us?" as="h2" className="section-title" delay={0.05} />
+            <AnimatedDivider center delay={0.4} />
+          </div>
+          <StaggerGrid className="features-list-grid">
+            {featureItems.map((f, i) => (
+              <AnimatedCard key={i} className="feature-list-item">
+                {f.icon}
+                <span className="feature-list-text">{f.label}</span>
+              </AnimatedCard>
+            ))}
+          </StaggerGrid>
+        </div>
+      </section>
+
+     
 
       <section className="about-content-section bg-off-white">
         <div className="container">

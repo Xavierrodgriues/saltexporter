@@ -179,8 +179,8 @@ export function Home() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="hero-badge-num">01</span>
-              <span className="hero-badge-text">Premium Salt Export</span>
+              <span className="hero-badge-num">No.1</span>
+              <span className="hero-badge-text">Premium Salt exporter</span>
             </motion.div>
           </motion.div>
 
@@ -241,6 +241,15 @@ export function Home() {
               viewport={{ once: true }}
             >
               Our state-of-the-art manufacturing facilities in Jawaharnagar (Padana), Chirai, and Kharagoda produce a diverse range of salt products, catering to both domestic and international markets.
+            </motion.p>
+            <motion.p
+              className="section-desc"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              Today, through <strong>Avintra</strong> — our dedicated global export arm — we proudly deliver our premium salt solutions to clients across the world, ensuring uncompromising quality from our manufacturing facilities directly to your port.
             </motion.p>
             <div className="about-stats">
               <div className="stat-elegant">

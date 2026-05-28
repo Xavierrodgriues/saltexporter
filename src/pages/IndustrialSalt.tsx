@@ -15,7 +15,7 @@ const products = [
   { img: '/premium_crystal_macro.png', title: 'Refined Salt', features: 'High-purity, finely milled for multipurpose industrial use.', uses: 'Food processing, textile finishing & water purification.' },
   { img: '/about_crystal_macro_elegant.png', title: 'Crystal Salt', features: 'Large, dense crystals with high purity.', uses: 'Water softening, de-icing, and chemical processes.' },
   { img: '/raw_salt_bowl.png', title: 'Raw Industrial Salt', features: 'Naturally coarse and minimally processed.', uses: 'Bulk applications in non-food industries.' },
-  { img: '/salt_assortment.png', title: 'Dust Powder', features: 'Extra-fine powder for precise industrial applications.', uses: 'Chemical formulations and specialized manufacturing.' },
+  { img: '/dustpowder.jpeg', title: 'Dust Powder', features: 'Extra-fine powder for precise industrial applications.', uses: 'Chemical formulations and specialized manufacturing.' },
 ];
 
 export function IndustrialSalt() {

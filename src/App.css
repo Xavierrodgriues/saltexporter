@@ -1019,6 +1019,10 @@
   text-align: center; /* Center brand info on mobile */
 }
 
+.footer-brand .logo {
+  color: var(--bg-pure-white);
+}
+
 .footer-logo {
   font-family: var(--font-sans);
   font-size: 1.3rem;

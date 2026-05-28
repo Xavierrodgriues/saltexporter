@@ -94,20 +94,21 @@ export function Layout() {
       <footer className="minimal-footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <AnimatedLogo className="footer-logo" isFooter={true} imageSrc="/avintraa.jpeg" />
-            <p className="footer-desc">
+            <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
+              <AnimatedLogo className="logo" />
+            </Link>
+            <p className="footer-desc" style={{marginTop: '15px'}}>
               <strong>Avintra</strong> is a global salt exporter, with our own dedicated manufacturing facility operated under <strong>Jain Salt</strong>. Together, we deliver high-quality salt to clients worldwide from our base in Kutch, near Kandla & Mundra Port.
             </p>
           </div>
           
           <div className="footer-links-col">
-            <h4 className="footer-heading">Services</h4>
+            <h4 className="footer-heading">Products</h4>
             <ul>
-              <li><a href="#">Free Flow Iodised Salt</a></li>
-              <li><a href="#">Refined Salt</a></li>
-              <li><a href="#">Industrial Salt</a></li>
-              <li><a href="#">Water Softening Salt</a></li>
-              <li><a href="#">Super Fine Salt</a></li>
+              <li><Link to="/products/edible-salt">Edible Salt</Link></li>
+              <li><Link to="/products/industrial-salt">Industrial Salt</Link></li>
+              <li><Link to="/products/specialty-industrial-salt">Specialty Industrial Salt</Link></li>
+              <li><Link to="/products/salt-tablet">Water Softening Salt</Link></li>
             </ul>
           </div>
           
