@@ -26,8 +26,7 @@ export function About() {
           <FadeIn delay={0.1}>
             <div className="subtitle-label">ABOUT OUR COMPANY</div>
           </FadeIn>
-          <SplitTextReveal text="Salt Manufacturing & Exporting In India" as="h1" className="hero-title" delay={0.08} />
-          <AnimatedDivider center delay={0.5} />
+          <SplitTextReveal text="Salt Manufacturers and Exporters from India" as="h1" className="hero-title" delay={0.08} />
         </div>
       </div>
 
