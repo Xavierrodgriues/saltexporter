@@ -4,6 +4,9 @@ import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
 import { ProductPageHero } from '../components/ProductPageHero';
+import { SeoHead } from '../components/SeoHead';
+import { buildProductSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 const benefits = [
   { title: 'Strategic Location', desc: 'Based in Gandhidham, near Mundra Port (70 km) and Kandla Port (20 km) — ensuring fast, cost-effective export logistics.', icon: (<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>) },
@@ -24,6 +27,33 @@ export function IndustrialSalt() {
 
   return (
     <div className="product-page">
+      <SeoHead
+        title="Industrial Salt Manufacturer & Exporter India | Bulk Industrial Salt | Jain Salt"
+        description="High-purity industrial salt manufactured in Kutch, Gujarat. Crystal salt, refined salt, raw industrial salt, and dust powder. FSSAI & ISO certified, exported to 20+ countries."
+        canonical="/products/industrial-salt"
+        ogImage="/industrial_salt_warehouse.png"
+        keywords="industrial salt manufacturer India, industrial salt exporter, bulk industrial salt supplier, crystal salt manufacturer, chemical grade salt, water treatment salt India"
+        schema={[
+          buildProductSchema({
+            name: 'Industrial Salt — Crystal, Refined & Raw Grades',
+            description: 'High-purity industrial salt from Kutch, Gujarat. Grades: Refined Salt, Crystal Salt, Raw Industrial Salt, Dust Powder. Used in food processing, textiles, water treatment, and chemical manufacturing.',
+            image: '/industrial_salt_warehouse.png',
+            url: '/products/industrial-salt',
+            category: 'Industrial Salt',
+            keywords: 'industrial salt, crystal salt, refined salt, raw salt, chemical grade salt, water treatment salt',
+          }),
+          buildWebPageSchema({
+            name: 'Industrial Salt Manufacturer & Exporter India',
+            description: 'High-purity industrial salt from Kutch, Gujarat. ISO certified.',
+            url: '/products/industrial-salt',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'Products', url: `${SITE_CONFIG.domain}/#products` },
+            { name: 'Industrial Salt', url: `${SITE_CONFIG.domain}/products/industrial-salt` },
+          ]),
+        ]}
+      />
       <ProductPageHero
         eyebrow="Industrial Salt Range"
         titleLine1="Industrial"

@@ -4,6 +4,9 @@ import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
 import { ProductPageHero } from '../components/ProductPageHero';
+import { SeoHead } from '../components/SeoHead';
+import { buildProductSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 export function EdibleSalt() {
   const statsRef = useRef<HTMLElement>(null);
@@ -24,8 +27,33 @@ export function EdibleSalt() {
 
   return (
     <div className="product-page">
-
-      
+      <SeoHead
+        title="Edible Salt Manufacturer & Exporter India | Free Flow, Crystal, Iodised Salt | Jain Salt"
+        description="FSSAI & ISO certified edible salt manufacturer in Kutch, Gujarat, India. Free Flow Salt, Crystal Salt, Refined Iodised Salt. Direct manufacturer pricing, exported globally since 1963."
+        canonical="/products/edible-salt"
+        ogImage="/raw_salt_bowl.png"
+        keywords="edible salt manufacturer India, free flow salt exporter, crystal salt supplier, iodised salt manufacturer, food grade salt India, table salt exporter Gujarat"
+        schema={[
+          buildProductSchema({
+            name: 'Edible Salt — Free Flow, Crystal & Iodised',
+            description: 'FSSAI & ISO certified premium edible salt from Kutch, Gujarat. Varieties: Free Flow Salt, Crystal Salt, Refined Iodised Salt, Common Iodised Salt. Exported to 20+ countries.',
+            image: '/raw_salt_bowl.png',
+            url: '/products/edible-salt',
+            category: 'Edible Salt',
+            keywords: 'edible salt, free flow salt, crystal salt, iodised salt, table salt, food grade salt',
+          }),
+          buildWebPageSchema({
+            name: 'Edible Salt Manufacturer India | Free Flow, Crystal & Iodised Salt',
+            description: 'Premium edible salt manufactured in Kutch Gujarat. FSSAI certified.',
+            url: '/products/edible-salt',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'Products', url: `${SITE_CONFIG.domain}/#products` },
+            { name: 'Edible Salt', url: `${SITE_CONFIG.domain}/products/edible-salt` },
+          ]),
+        ]}
+      />
       <ProductPageHero
         eyebrow="Edible Salt Range"
         titleLine1="Premium"

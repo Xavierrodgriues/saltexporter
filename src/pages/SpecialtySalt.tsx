@@ -1,6 +1,9 @@
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
 import { ProductPageHero } from '../components/ProductPageHero';
+import { SeoHead } from '../components/SeoHead';
+import { buildProductSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 const featureItems = [
   { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>ISO-Certified</strong> Manufacturing</> },
@@ -27,6 +30,33 @@ const whyBenefits = [
 export function SpecialtySalt() {
   return (
     <div className="product-page">
+      <SeoHead
+        title="Specialty Industrial Salt Manufacturer | Textile, Chemical & Pharma Grade Salt | Jain Salt"
+        description="Purpose-engineered specialty industrial salt from Kutch, Gujarat, India. Textile grade, chemical grade, pharma grade, and oil & gas grade salt. ISO certified, globally exported."
+        canonical="/products/specialty-industrial-salt"
+        ogImage="/specialty_salt_lab.png"
+        keywords="specialty industrial salt, textile grade salt manufacturer, chemical grade salt India, pharma grade salt, oil gas salt supplier, specialty salt exporter India"
+        schema={[
+          buildProductSchema({
+            name: 'Specialty Industrial Salt — Textile, Chemical & Pharma Grade',
+            description: 'High-purity specialty industrial salt engineered for textiles, chemicals, pharma, and oil & gas industries. Manufactured in Kutch, Gujarat, India.',
+            image: '/specialty_salt_lab.png',
+            url: '/products/specialty-industrial-salt',
+            category: 'Specialty Industrial Salt',
+            keywords: 'textile grade salt, chemical grade salt, pharma grade salt, oil gas salt, specialty salt',
+          }),
+          buildWebPageSchema({
+            name: 'Specialty Industrial Salt | Textile, Chemical & Pharma Grade',
+            description: 'Specialty industrial salt for textiles, chemicals, pharma and oil & gas. ISO certified.',
+            url: '/products/specialty-industrial-salt',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'Products', url: `${SITE_CONFIG.domain}/#products` },
+            { name: 'Specialty Industrial Salt', url: `${SITE_CONFIG.domain}/products/specialty-industrial-salt` },
+          ]),
+        ]}
+      />
       <ProductPageHero
         eyebrow="Specialty Industrial Salt"
         titleLine1="Specialized"

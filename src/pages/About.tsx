@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
+import { SeoHead } from '../components/SeoHead';
+import { buildOrganizationSchema, buildFaqSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 export function About() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -20,6 +23,25 @@ export function About() {
 
   return (
     <div className="about-page">
+      <SeoHead
+        title="About Jain Salt — 60+ Year Legacy Salt Manufacturer, Kutch Gujarat"
+        description="Learn about Jain Salt Traders (Avintra International) — FSSAI & ISO certified salt manufacturers in Kutch, Gujarat, India. Exporting edible and industrial salt to 20+ countries since 1963."
+        canonical="/about"
+        keywords="about Jain Salt, salt manufacturer Kutch Gujarat, salt exporter India, Avintra salt, FSSAI certified salt, ISO certified salt manufacturer"
+        schema={[
+          buildOrganizationSchema(),
+          buildFaqSchema(faqs),
+          buildWebPageSchema({
+            name: 'About Jain Salt Traders — Salt Manufacturer & Exporter India',
+            description: 'FSSAI & ISO certified salt manufacturer from Kutch, Gujarat, India since 1963.',
+            url: '/about',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'About Us', url: `${SITE_CONFIG.domain}/about` },
+          ]),
+        ]}
+      />
       {/* Page Header */}
       <div className="page-header text-center">
         <div className="container">

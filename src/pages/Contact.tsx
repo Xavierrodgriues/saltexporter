@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider } from '../components/animations/AnimationPrimitives';
+import { SeoHead } from '../components/SeoHead';
+import { buildOrganizationSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,6 +57,24 @@ export function Contact() {
   };
   return (
     <div className="contact-page">
+      <SeoHead
+        title="Contact Jain Salt Traders | Salt Exporter India | Get a Quote | Avintra"
+        description="Contact Jain Salt Traders (Avintra International) for bulk salt inquiries. Office in Gandhidham, Kutch, Gujarat. Phone: +91 79909 33686. Email: info@saltexporter.com. FSSAI & ISO certified salt exporter."
+        canonical="/contact"
+        keywords="contact salt manufacturer India, salt exporter inquiry, bulk salt quote, Jain Salt contact, Avintra International, Gandhidham salt company, Kutch salt exporter"
+        schema={[
+          buildOrganizationSchema(),
+          buildWebPageSchema({
+            name: 'Contact Jain Salt Traders — Salt Manufacturer & Exporter India',
+            description: 'Contact us for bulk salt inquiries. Gandhidham, Kutch, Gujarat.',
+            url: '/contact',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'Contact', url: `${SITE_CONFIG.domain}/contact` },
+          ]),
+        ]}
+      />
       <div className="container">
         <div className="contact-header">
           <FadeIn delay={0.1}><div className="subtitle-label">GET IN TOUCH</div></FadeIn>

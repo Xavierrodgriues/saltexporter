@@ -6,6 +6,13 @@ import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
 import { MagneticButton } from '../components/animations/MagneticButton';
+import { SeoHead } from '../components/SeoHead';
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildProductSchema,
+  buildBreadcrumbSchema,
+} from '../seo/schemas';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,6 +91,25 @@ export function Home() {
 
   return (
     <>
+      <SeoHead
+        title="Jain Salt Traders | Salt Manufacturer & Exporter India | Avintra"
+        description="FSSAI & ISO certified salt manufacturer and bulk exporter from Kutch, Gujarat, India. Premium edible salt, industrial salt, and water softening salt tablets exported to 20+ countries since 1963."
+        canonical="/"
+        ogImage="/premium_crystal_macro.png"
+        keywords="salt manufacturer India, industrial salt manufacturer, salt exporter India, bulk salt supplier, edible salt manufacturer, sea salt exporter, Kutch Gujarat salt, Jain Salt, Avintra"
+        schema={[
+          buildOrganizationSchema(),
+          buildWebSiteSchema(),
+          buildProductSchema({
+            name: 'Bulk Edible & Industrial Salt',
+            description: 'Premium edible salt, industrial salt, and water softening salt tablets manufactured at Kutch, Gujarat, India. FSSAI & ISO certified. Exported to 20+ countries.',
+            image: '/premium_crystal_macro.png',
+            url: '/',
+            keywords: 'edible salt, industrial salt, water softening salt tablets, bulk salt India',
+          }),
+          buildBreadcrumbSchema([{ name: 'Home', url: 'https://www.saltexporter.com/' }]),
+        ]}
+      />
       {/* ═══ HERO — Bold Split Layout ═══ */}
       <main className="hero-section" id="home" ref={heroRef}>
         <div className="hero-inner">

@@ -1,6 +1,9 @@
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { FadeIn, AnimatedDivider, StaggerGrid, AnimatedCard } from '../components/animations/AnimationPrimitives';
 import { ProductPageHero } from '../components/ProductPageHero';
+import { SeoHead } from '../components/SeoHead';
+import { buildProductSchema, buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { SITE_CONFIG } from '../seo/config';
 
 const featureItems = [
   { icon: (<svg className="feature-list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>), label: <><strong>ISO-Certified</strong> Manufacturing</> },
@@ -31,6 +34,33 @@ const industries = [
 export function TabletSalt() {
   return (
     <div className="product-page">
+      <SeoHead
+        title="Water Softening Salt Tablets Manufacturer & Exporter India | 99.5% Purity | Jain Salt"
+        description="High-purity water softening salt tablets (>99.5% purity) manufactured in Kutch, Gujarat, India. Crystal and tablet grades for residential, commercial and industrial water softeners. Exported globally."
+        canonical="/products/salt-tablet"
+        ogImage="/salt_tablets_hero.png"
+        keywords="water softening salt tablets manufacturer India, salt tablets exporter, water softener salt supplier, ion exchange salt India, high purity salt tablets, water treatment salt"
+        schema={[
+          buildProductSchema({
+            name: 'Water Softening Salt Tablets — 99.5%+ Purity',
+            description: 'High-purity water softening salt tablets manufactured in Kutch, Gujarat. >99.5% NaCl purity. Suitable for all water softener and ion exchange systems. Exported to 20+ countries.',
+            image: '/salt_tablets_hero.png',
+            url: '/products/salt-tablet',
+            category: 'Water Softening Salt',
+            keywords: 'water softening salt tablets, salt tablets, ion exchange salt, water softener salt, high purity salt',
+          }),
+          buildWebPageSchema({
+            name: 'Water Softening Salt Tablets Manufacturer India',
+            description: 'High-purity water softening salt tablets from Kutch, Gujarat. 99.5%+ NaCl purity.',
+            url: '/products/salt-tablet',
+          }),
+          buildBreadcrumbSchema([
+            { name: 'Home', url: `${SITE_CONFIG.domain}/` },
+            { name: 'Products', url: `${SITE_CONFIG.domain}/#products` },
+            { name: 'Water Softening Salt', url: `${SITE_CONFIG.domain}/products/salt-tablet` },
+          ]),
+        ]}
+      />
       <ProductPageHero
         eyebrow="Water Softening Salt"
         titleLine1="Purity"
