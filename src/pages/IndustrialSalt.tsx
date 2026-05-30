@@ -111,13 +111,14 @@ export function IndustrialSalt() {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }}
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
             {[
-              { v: 15, l: 'States\nDomestic Supply' },
-              { v: 60, l: 'Years\nExperience' },
-              { v: 25, l: 'Professional\nTeam' },
-              { v: 20, l: 'Countries\nExported' },
+              { v: 15, l: 'States\nDomestic Supply', icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> },
+              { v: 60, l: 'Years\nExperience', icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> },
+              { v: 25, l: 'Professional\nTeam', icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> },
+              { v: 20, l: 'Countries\nExported', icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> },
             ].map((s, i) => (
               <motion.div key={i} className="counter-item"
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] } } }}>
+                <span className="counter-icon">{s.icon}</span>
                 <span className="counter-num"><AnimatedNumber value={s.v} suffix="+" /></span>
                 <span className="counter-label">{s.l.split('\n').map((line, j) => <span key={j}>{line}{j === 0 && <br />}</span>)}</span>
               </motion.div>

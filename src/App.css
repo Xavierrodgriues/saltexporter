@@ -991,8 +991,40 @@
 }
 
 .counter-item {
+  /* existing card styles */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  cursor: default;
+  background-color: var(--bg-pure-white);
+  padding: 40px 30px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.counter-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Permanently active bottom border */
+  background-color: var(--accent-gold);
+  border-radius: 0 0 8px 8px;
+}
+
+.counter-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 25px;
+  color: var(--bg-pure-white); /* Permanently active text color */
+  background-color: var(--accent-gold); /* Permanently active background */
+  border-radius: 50%;
 }
 
 .counter-num {
@@ -1750,7 +1782,9 @@
 .horizontal-counters {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 30px;
   padding: 60px 0;
 }
@@ -1759,11 +1793,16 @@
   .horizontal-counters {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 40px;
+    justify-content: center;
+    gap: 60px;
   }
   .horizontal-counters .counter-item {
-    flex: 1;
-    min-width: 200px;
+    flex: 0 1 auto;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
