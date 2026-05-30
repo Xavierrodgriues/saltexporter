@@ -42,6 +42,7 @@ export function About() {
           ]),
         ]}
       />
+      
       {/* Page Header */}
       <div className="page-header text-center">
         <div className="container">
