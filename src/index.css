@@ -2,6 +2,7 @@
   /* Minimalist Color Palette */
   --bg-pure-white: #ffffff;
   --bg-off-white: #fafafa;
+  --bg-dark-slate: #111111;
   
   --text-dark: #111111;
   --text-muted: #666666;
@@ -12,7 +13,7 @@
 
   /* Typography */
   --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Montserrat', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
