@@ -6,6 +6,7 @@ import { AnimatedNumber, useOnScreen } from '../components/AnimatedNumber';
 import { SplitTextReveal } from '../components/animations/SplitTextReveal';
 import { ImageMaskReveal } from '../components/animations/ImageMaskReveal';
 import { MagneticButton } from '../components/animations/MagneticButton';
+import { RotatingImageCluster } from '../components/RotatingImageCluster';
 import { SeoHead } from '../components/SeoHead';
 import {
   buildOrganizationSchema,
@@ -174,29 +175,20 @@ export function Home() {
           </motion.div>
 
           {/* RIGHT — Floating image with geometric accent */}
-          <motion.div className="hero-right" style={{ y: heroImgY }}>
+          <motion.div className="hero-right" style={{ y: heroImgY, position: 'relative', width: '100%', minHeight: '550px' }}>
             <motion.div
-              className="hero-geo-circle"
-              initial={{ scale: 0.6, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            />
-            <motion.div
-              className="hero-geo-ring"
-              initial={{ scale: 0.4, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            />
-            <motion.div
-              className="hero-img-frame"
-              initial={{ opacity: 0, y: 60, rotate: 3 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ duration: 1.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.6, delay: 0.2 }}
+              style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
             >
-              <img
-                src="/premium_crystal_macro.png"
-                alt="Premium salt crystals"
-                className="hero-product-img"
+              <RotatingImageCluster 
+                images={[
+                  { src: "/premium_crystal_macro.png", alt: "Premium salt crystals" },
+                  { src: "/jain_edible_salt.png", alt: "Edible Salt" },
+                  { src: "/specialty_industrial_salt.png", alt: "Specialty Industrial Salt" }
+                ]} 
+                intervalMs={4000} 
               />
             </motion.div>
             <motion.div

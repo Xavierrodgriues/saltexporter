@@ -323,11 +323,12 @@
 }
 
 .hero-stat-val {
-  font-family: var(--font-sans);
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: 'Barlow Condensed', var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: 900;
   color: var(--text-dark);
   line-height: 1;
+  letter-spacing: -0.5px;
 }
 
 .hero-stat-label {
@@ -573,11 +574,12 @@
 }
 
 .prod-stat-val {
-  font-family: var(--font-sans);
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: 'Barlow Condensed', var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: 900;
   color: var(--text-dark);
   line-height: 1;
+  letter-spacing: -0.5px;
 }
 
 .prod-stat-label {
@@ -816,10 +818,12 @@
 }
 
 .stat-num {
-  font-family: var(--font-serif);
-  font-size: 3rem; /* Smaller for mobile */
+  font-family: 'Barlow Condensed', var(--font-sans);
+  font-size: 3.2rem;
+  font-weight: 900;
   color: var(--text-dark);
   line-height: 1;
+  letter-spacing: -0.5px;
 }
 
 .stat-label {
@@ -1028,11 +1032,13 @@
 }
 
 .counter-num {
-  font-family: var(--font-serif);
-  font-size: 3rem;
+  font-family: 'Barlow Condensed', var(--font-sans);
+  font-size: 3.2rem;
+  font-weight: 900;
   color: var(--text-dark);
   line-height: 1;
   margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
 .counter-label {
@@ -1546,7 +1552,8 @@
 /* --- Navigation Dropdown --- */
 .nav-dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   height: 100%;
 }
 
