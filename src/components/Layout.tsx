@@ -34,6 +34,7 @@ export function Layout() {
           </div>
 
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+          <Link to="/management" onClick={() => setIsMobileMenuOpen(false)}>Our Management</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
         </nav>
       </div>
@@ -70,6 +71,7 @@ export function Layout() {
               </div>
             </div>
             <Link to="/about" className="nav-link">About</Link>
+            <Link to="/management" className="nav-link">Our Management</Link>
             <Link to="/contact" className="nav-link">Contact Us</Link>
           </nav>
           

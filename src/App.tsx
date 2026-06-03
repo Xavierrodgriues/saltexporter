@@ -13,6 +13,7 @@ const EdibleSalt = lazy(() => import('./pages/EdibleSalt').then(m => ({ default:
 const IndustrialSalt = lazy(() => import('./pages/IndustrialSalt').then(m => ({ default: m.IndustrialSalt })));
 const SpecialtySalt = lazy(() => import('./pages/SpecialtySalt').then(m => ({ default: m.SpecialtySalt })));
 const TabletSalt = lazy(() => import('./pages/TabletSalt').then(m => ({ default: m.TabletSalt })));
+const Management = lazy(() => import('./pages/Management').then(m => ({ default: m.Management })));
 
 function App() {
   const [showEntrance, setShowEntrance] = useState(false);
@@ -45,6 +46,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
+              <Route path="management" element={<Management />} />
               <Route path="contact" element={<Contact />} />
               <Route path="products/edible-salt" element={<EdibleSalt />} />
               <Route path="products/industrial-salt" element={<IndustrialSalt />} />
