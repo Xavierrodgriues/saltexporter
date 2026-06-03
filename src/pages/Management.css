@@ -141,13 +141,6 @@
   margin: 0 0 30px 0;
 }
 
-.management-divider {
-  width: 70px;
-  height: 3px;
-  background-color: var(--accent-gold);
-  margin-bottom: 30px;
-}
-
 .management-desc {
   font-family: var(--font-sans);
   font-size: 1.15rem;

@@ -14,25 +14,25 @@ export function Management() {
       name: "Mohanlal Jain",
       role: "Management & Operations",
       description: "Mohanlal Jain brings over 50 years of invaluable experience to Jain Salt, overseeing our broader management and operational framework. His decades of steady leadership and deep industry knowledge ensure that our manufacturing business runs smoothly and efficiently every single day.",
-      image: "/Mohanlal.png"
+      image: "/Mohanlal_v2.png"
     },
     {
       name: "Vinod Jain",
       role: "Factory Operations & Quality Control",
       description: "As the backbone of our on-ground production, Vinod Jain oversees all factory operations and labor management at Jain Salt. His hands-on approach and strict dedication to overall quality control guarantee that every batch we produce meets exceptional standards.",
-      image: "/Vinod.png"
+      image: "/Vinod_v2.png"
     },
     {
       name: "Jitendra Jain",
       role: "Commercial Activities & Partnerships",
       description: "Jitendra Jain drives the core commercial activities for Jain Salt. By expertly managing purchasing, sales, and forging strategic partnerships, he ensures our manufacturing capabilities consistently meet market demands with reliability and trust.",
-      image: "/Raju.png"
+      image: "/Raju_v2.png"
     },
     {
       name: "Aryan Jain",
       role: "Proprietor, Avintra International",
       description: "Following my MBA in Bangalore, I returned to my roots in Gujarat to expand our family's direct manufacturing legacy, and I now take pride in managing our export partnerships across more than six countries.",
-      image: "/Aryan.png"
+      image: "/Aryan_v2.png"
     }
   ];
 
@@ -81,9 +81,6 @@ export function Management() {
                       <h4 className="management-role">{member.role}</h4>
                     </FadeIn>
                     <FadeIn delay={0.3}>
-                      <div className="management-divider"></div>
-                    </FadeIn>
-                    <FadeIn delay={0.4}>
                       <p className="management-desc">{member.description}</p>
                     </FadeIn>
                   </div>
