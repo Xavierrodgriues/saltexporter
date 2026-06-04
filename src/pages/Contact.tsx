@@ -104,8 +104,11 @@ export function Contact() {
               <div className="info-block">
                 <h4 className="info-heading">Location</h4>
                 <p>
-                  Office No 1,2,3 Dhiraj Chamber, Plot No. 36, Sector 9, Near Gandhidham Nagar Palika<br />
-                  Gandhidham Kachchh, Gujarat - 370201, Kachchh, Gujarat - 370201, India
+                  <strong>Factory:</strong> Plot No 6-7, Survey No-6, Village Chudva, Taluka Gandhidham,<br />
+                  Dist. Kutch - 370240, Gujarat
+                </p>
+                <p>
+                  <strong>Factory Address 1:</strong> 6779+GQ3, Chirai Moti, Gujarat - 370140
                 </p>
               </div>
             </div>

@@ -258,7 +258,7 @@ export function Home() {
               transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              Our state-of-the-art manufacturing facilities in Jawaharnagar (Padana), Chirai, and Kharagoda produce a diverse range of salt products, catering to both domestic and international markets.
+              Our state-of-the-art manufacturing facilities — at Village Chudva, Taluka Gandhidham, Dist. Kutch and Chirai Moti, Gujarat — produce a diverse range of salt products, catering to both domestic and international markets.
             </motion.p>
             <motion.p
               className="section-desc"
@@ -270,10 +270,11 @@ export function Home() {
               Today, through <strong>Avintra</strong> — our dedicated global export arm — we proudly deliver our premium salt solutions to clients across the world, ensuring uncompromising quality from our manufacturing facilities directly to your port.
             </motion.p>
             <div className="about-stats">
-              <div className="stat-elegant">
-                <span className="stat-num"><AnimatedNumber value={60} suffix="+" /></span>
-                <span className="stat-label">Years of<br />Excellence</span>
-              </div>
+              <img
+                src="/60year lgo.png"
+                alt="60 Years of Excellence"
+                style={{ maxWidth: '320px', width: '100%', objectFit: 'contain' }}
+              />
             </div>
           </div>
         </div>
