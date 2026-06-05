@@ -213,3 +213,39 @@ export function buildWebPageSchema(opts: { name: string; description: string; ur
     inLanguage: 'en',
   };
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Article schema (Blog posts)
+// ─────────────────────────────────────────────────────────────────────────────
+interface ArticleSchemaInput {
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  url: string;
+  authorName?: string;
+}
+export function buildArticleSchema(article: ArticleSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    image: `${D}${article.image}`,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    author: {
+      '@type': 'Organization',
+      name: article.authorName ?? SITE_CONFIG.name,
+      url: D
+    },
+    publisher: {
+      '@id': `${D}/#organization`
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${D}${article.url}`
+    }
+  };
+}

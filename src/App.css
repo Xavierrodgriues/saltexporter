@@ -1274,7 +1274,7 @@
   }
 
   .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr; /* 3 columns in footer */
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* 4 columns in footer */
   }
 
   .footer-brand {

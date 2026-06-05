@@ -97,7 +97,7 @@ export function Home() {
         description="FSSAI & ISO certified salt manufacturer and bulk exporter from Kutch, Gujarat, India. Premium edible salt, industrial salt, and water softening salt tablets exported to 20+ countries since 1963."
         canonical="/"
         ogImage="/premium_crystal_macro.png"
-        keywords="salt manufacturer India, industrial salt manufacturer, salt exporter India, bulk salt supplier, edible salt manufacturer, sea salt exporter, Kutch Gujarat salt, Jain Salt, Avintra"
+        keywords="salt manufacturer India, industrial salt manufacturer, salt exporter India, bulk salt supplier, edible salt manufacturer, sea salt exporter, Kutch Gujarat salt, Jain Salt, Avintra, salt export from india, salt exporter, salt exporter in gandhidham, salt exporters in gujarat, salt export company, salt manufacturers in gandhidham, salt manufacturer in gujarat, salt manufacturers, salt manufacturers in kutch, salt manufacturers in india, industrial salt supplier, industrial salt suppliers near me, industrial salt near me, industrial salt manufacturers in india, industrial salt uses, industrial salt for earthing, raw salt near me, raw salt suppliers near me, raw salt hsn code, raw salt price per ton, sea salt from india, salt import from india"
         schema={[
           buildOrganizationSchema(),
           buildWebSiteSchema(),

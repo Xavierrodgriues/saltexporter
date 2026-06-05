@@ -35,6 +35,7 @@ export function Layout() {
 
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
           <Link to="/management" onClick={() => setIsMobileMenuOpen(false)}>Our Management</Link>
+          <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
         </nav>
       </div>
@@ -72,6 +73,7 @@ export function Layout() {
             </div>
             <Link to="/about" className="nav-link">About</Link>
             <Link to="/management" className="nav-link">Our Management</Link>
+            <Link to="/blog" className="nav-link">Blog</Link>
             <Link to="/contact" className="nav-link">Contact Us</Link>
           </nav>
           
@@ -111,6 +113,16 @@ export function Layout() {
               <li><Link to="/products/industrial-salt">Industrial Salt</Link></li>
               <li><Link to="/products/specialty-industrial-salt">Specialty Industrial Salt</Link></li>
               <li><Link to="/products/salt-tablet">Water Softening Salt</Link></li>
+            </ul>
+          </div>
+          
+          <div className="footer-links-col">
+            <h4 className="footer-heading">Company</h4>
+            <ul>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/management">Our Management</Link></li>
+              <li><Link to="/blog">Blog & Insights</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           

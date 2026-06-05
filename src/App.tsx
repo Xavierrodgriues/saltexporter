@@ -14,6 +14,12 @@ const IndustrialSalt = lazy(() => import('./pages/IndustrialSalt').then(m => ({ 
 const SpecialtySalt = lazy(() => import('./pages/SpecialtySalt').then(m => ({ default: m.SpecialtySalt })));
 const TabletSalt = lazy(() => import('./pages/TabletSalt').then(m => ({ default: m.TabletSalt })));
 const Management = lazy(() => import('./pages/Management').then(m => ({ default: m.Management })));
+const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
+const HowToMakeSalt = lazy(() => import('./pages/blog/HowToMakeSalt').then(m => ({ default: m.HowToMakeSalt })));
+const TaxOnSalt = lazy(() => import('./pages/blog/TaxOnSalt').then(m => ({ default: m.TaxOnSalt })));
+const WhereSaltFound = lazy(() => import('./pages/blog/WhereSaltFound').then(m => ({ default: m.WhereSaltFound })));
+const SaltMinesIndia = lazy(() => import('./pages/blog/SaltMinesIndia').then(m => ({ default: m.SaltMinesIndia })));
+const SaltExportCountries = lazy(() => import('./pages/blog/SaltExportCountries').then(m => ({ default: m.SaltExportCountries })));
 
 function App() {
   const [showEntrance, setShowEntrance] = useState(false);
@@ -52,6 +58,12 @@ function App() {
               <Route path="products/industrial-salt" element={<IndustrialSalt />} />
               <Route path="products/specialty-industrial-salt" element={<SpecialtySalt />} />
               <Route path="products/salt-tablet" element={<TabletSalt />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="blog/how-to-make-salt-in-india" element={<HowToMakeSalt />} />
+              <Route path="blog/is-there-tax-on-salt-in-india" element={<TaxOnSalt />} />
+              <Route path="blog/where-is-salt-found-in-india" element={<WhereSaltFound />} />
+              <Route path="blog/does-india-have-salt-mines" element={<SaltMinesIndia />} />
+              <Route path="blog/salt-export-from-india-to-which-country" element={<SaltExportCountries />} />
             </Route>
           </Routes>
         </Suspense>
