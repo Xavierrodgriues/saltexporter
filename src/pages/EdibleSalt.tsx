@@ -91,6 +91,7 @@ export function EdibleSalt() {
                     <li><strong>Features:</strong> {p.features}</li>
                     <li><strong>Uses:</strong> {p.uses}</li>
                     {p.brands && <li><strong>Our Brands:</strong> {p.brands}</li>}
+                    <li><strong>Packing size available:</strong> 500gm, 1Kg, 2Kg, 5Kg, 25Kg, 50Kg, 1 Ton, 1.4 Ton, Bulk</li>
                   </ul>
                   
                   <div className="product-actions">

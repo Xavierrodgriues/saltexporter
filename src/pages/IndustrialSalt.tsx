@@ -87,6 +87,7 @@ export function IndustrialSalt() {
                   <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
                     <li><strong>Features:</strong> {p.features}</li>
                     <li><strong>Uses:</strong> {p.uses}</li>
+                    <li><strong>Packing size available:</strong> 18Kg, 20Kg, 25Kg, 40Kg, 50Kg, 1 Ton, 1.4 Ton, Bulk</li>
                   </ul>
                   <div className="product-actions">
                     <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I would like to request the specification sheet for ' + p.title + '.')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-outline">

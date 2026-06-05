@@ -93,6 +93,7 @@ export function TabletSalt() {
                 <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
                   <li><strong>Features:</strong> Prevents mineral buildup in water systems.</li>
                   <li><strong>Uses:</strong> Residential &amp; commercial water softening.</li>
+                  <li><strong>Packing size available:</strong> 18Kg, 20Kg, 25Kg, 40Kg, 50Kg, 1 Ton, 1.4 Ton, Bulk</li>
                 </ul>
                 <div className="product-actions">
                   <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I would like to request the specification sheet for Water Softening Salt (Crystal).')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-outline">
@@ -109,6 +110,7 @@ export function TabletSalt() {
                 <ul className="elegant-list" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>
                   <li><strong>Features:</strong> Compressed tablets dissolve quickly.</li>
                   <li><strong>Uses:</strong> Large-scale water softening, purification systems.</li>
+                  <li><strong>Packing size available:</strong> 18Kg, 20Kg, 25Kg, 40Kg, 50Kg, 1 Ton, 1.4 Ton, Bulk</li>
                 </ul>
                 <div className="product-actions">
                   <a href={`https://wa.me/917990933686?text=${encodeURIComponent('Hello, I would like to request the specification sheet for Salt Tablet >99.5% Purity Grade.')}`} target="_blank" rel="noopener noreferrer" className="btn-product btn-product-outline">
