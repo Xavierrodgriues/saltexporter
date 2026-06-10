@@ -16,12 +16,20 @@ export function useOnScreen(ref: React.RefObject<Element | null>, rootMargin = "
 }
 
 export const AnimatedNumber = ({ value, duration = 2000, suffix = "" }: { value: number, duration?: number, suffix?: string }) => {
-  const [count, setCount] = useState(0);
+  // SEO fix: initialise to `value` so crawlers always read the authoritative
+  // number in raw HTML. When the element enters the viewport for the first time
+  // we temporarily reset to 0 and animate back up — human visitors still see
+  // the full count-up effect.
+  const [count, setCount] = useState(value);
+  const hasAnimated = useRef(false);
   const ref = useRef<HTMLSpanElement>(null);
   const isVisible = useOnScreen(ref);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasAnimated.current) return;
+    hasAnimated.current = true;
+    // Reset to 0 for the animation
+    setCount(0);
     let startTimestamp: number | null = null;
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;

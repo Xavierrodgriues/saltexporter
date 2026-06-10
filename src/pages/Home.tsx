@@ -93,8 +93,8 @@ export function Home() {
   return (
     <>
       <SeoHead
-        title="Jain Salt Traders | Salt Manufacturer & Exporter India | Avintra"
-        description="FSSAI & ISO certified salt manufacturer and bulk exporter from Kutch, Gujarat, India. Premium edible salt, industrial salt, and water softening salt tablets exported to 20+ countries since 1963."
+        title="Direct Salt Manufacturer & Exporter India | Jain Salt / Avintra"
+        description="Avoid trading markups. Source premium industrial, edible, and tablet salt directly from our manufacturing facilities in Kutch. 60+ years legacy, exporting to 20+ countries."
         canonical="/"
         ogImage="/premium_crystal_macro.png"
         keywords="salt manufacturer India, industrial salt manufacturer, salt exporter India, bulk salt supplier, edible salt manufacturer, sea salt exporter, Kutch Gujarat salt, Jain Salt, Avintra, salt export from india, salt exporter, salt exporter in gandhidham, salt exporters in gujarat, salt export company, salt manufacturers in gandhidham, salt manufacturer in gujarat, salt manufacturers, salt manufacturers in kutch, salt manufacturers in india, industrial salt supplier, industrial salt suppliers near me, industrial salt near me, industrial salt manufacturers in india, industrial salt uses, industrial salt for earthing, raw salt near me, raw salt suppliers near me, raw salt hsn code, raw salt price per ton, sea salt from india, salt import from india"
@@ -346,7 +346,7 @@ export function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons. With Jain Salt as our dedicated in-house salt manufacturer and Avintra serving as our specialized global export arm, we ensure consistent supply and premium quality across our entire portfolio. We proudly export our bulk salt, edible salt, and industrial salt to international markets including Vietnam, Malaysia, Mauritius, Oman, Tanzania, Dubai, Singapore, and are continually expanding our global footprint.
+              Our three manufacturing units in Kutch, Gujarat, allow us to meet an annual production capacity of 1.5 lakh metric tons. With Jain Salt as our dedicated in-house salt manufacturer and Avintra serving as our specialized global export arm, we ensure consistent supply and premium quality across our entire portfolio. We proudly export our bulk salt, edible salt, and industrial salt to international markets including Vietnam, Malaysia, Mauritius, Oman, Tanzania, Dubai, Singapore, Ghana, The Maldives, Bahrain, Seychelles, Indonesia, Spain, China, Qatar, Bangladesh, Sierra Leone, Fiji, Jamaica, and are continually expanding our global footprint.
             </motion.p>
 
             <div className="elegant-progress">

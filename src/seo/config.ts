@@ -35,6 +35,9 @@ export const SITE_CONFIG = {
   exportMarkets: [
     'Vietnam', 'Malaysia', 'Mauritius', 'Oman',
     'Tanzania', 'Dubai', 'Singapore', 'Africa',
+    'Ghana', 'The Maldives', 'Bahrain', 'Seychelles',
+    'Indonesia', 'Spain', 'China', 'Qatar',
+    'Bangladesh', 'Sierra Leone', 'Fiji', 'Jamaica',
   ],
   // Primary og:image — should be 1200×630 ideally
   ogImage: '/avintraa.jpeg',
